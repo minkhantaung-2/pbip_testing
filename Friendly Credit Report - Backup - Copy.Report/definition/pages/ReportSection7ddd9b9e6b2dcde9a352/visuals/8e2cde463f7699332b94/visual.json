@@ -593,6 +593,129 @@
             }
           ]
         }
+      },
+      {
+        "name": "920a8e172691198305c7",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FCDisburse"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "datadate"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5f94811ca6d7d15da087",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Total Customer"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8e86bf03d613bf487c12",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Total Loan"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dd5f05ec2111d593e7ce",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Total Principal"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c9d0ae84da1af4778ef2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Total DPD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7aa3e2aa9a4e2ebd29b2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "Total DPD Amt"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8d3206e05c01c1c64894",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "DPD 90 Plus Count"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4ac4b6131eec3973c0c8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measure"
+              }
+            },
+            "Property": "DPD 90 Plus Amt"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
