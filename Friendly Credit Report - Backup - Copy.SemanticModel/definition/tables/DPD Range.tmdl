@@ -1,0 +1,37 @@
+table 'DPD Range'
+	lineageTag: 7a4f8850-2350-4a05-b1b6-500714c7b65b
+
+	column 'DPD Bucket'
+		dataType: string
+		lineageTag: c00ee68d-0128-40df-839c-e5a13d877a6c
+		summarizeBy: none
+		sourceColumn: DPD Bucket
+		sortByColumn: 'DPD Index'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DPD Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d6ac1b2-4559-412d-b814-9645f61aadb3
+		summarizeBy: sum
+		sourceColumn: DPD Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DPD Range' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcglwUTBU0FUwNlDSUTJUitWBCBmDxMxAYkZwMTOQmCVIzBguZmkAFDO0AAmawAWBfG2ggKlSbCwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"DPD Range" = _t, #"DPD Index" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"DPD Range", type text}, {"DPD Index", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"DPD Range", "DPD Bucket"}})
+				in
+				    #"Renamed Columns"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

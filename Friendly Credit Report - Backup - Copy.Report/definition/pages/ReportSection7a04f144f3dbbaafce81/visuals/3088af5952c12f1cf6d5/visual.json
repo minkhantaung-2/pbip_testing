@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "3088af5952c12f1cf6d5",
+  "position": {
+    "x": 588.92712175220993,
+    "y": 210.4629839490656,
+    "z": 13000,
+    "height": 38.769497043248926,
+    "width": 348.92547338924032,
+    "tabOrder": 13000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Payment",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#e66c37"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#e66c37"
+                    }
+                  },
+                  {
+                    "value": "Vs",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#252423"
+                    }
+                  },
+                  {
+                    "value": " Repayment",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#57a6f0"
+                    }
+                  },
+                  {
+                    "value": " Vs ",
+                    "textStyle": {
+                      "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Profit",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#029928"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

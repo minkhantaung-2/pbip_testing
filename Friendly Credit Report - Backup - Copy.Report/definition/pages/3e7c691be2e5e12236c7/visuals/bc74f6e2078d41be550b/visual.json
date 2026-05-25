@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "bc74f6e2078d41be550b",
+  "position": {
+    "x": 12,
+    "y": 370,
+    "z": 2000,
+    "height": 280,
+    "width": 826,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FCDisburse"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "datadate"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Year"
+                }
+              },
+              "queryRef": "FCDisburse.datadate.Variation.Date Hierarchy.Year",
+              "nativeQueryRef": "datadate Year"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FCDisburse"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "datadate"
+                        }
+                      },
+                      "Hierarchy": "Date Hierarchy"
+                    }
+                  },
+                  "Level": "Month"
+                }
+              },
+              "queryRef": "FCDisburse.datadate.Variation.Date Hierarchy.Month",
+              "nativeQueryRef": "datadate Month"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "payment amt"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FCDisburse.payment amt)",
+              "nativeQueryRef": "Sum of payment amt"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "repayment_amount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FCDisburse.repayment_amount)",
+              "nativeQueryRef": "Sum of repayment_amount"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

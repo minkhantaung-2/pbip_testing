@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "df883059e94d03882cf6",
+  "position": {
+    "x": 663.84081981312818,
+    "y": 416.71332400468134,
+    "z": 11000,
+    "height": 60.413223140495866,
+    "width": 592.89256198347107,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Loan Growth (%) by Year & Month",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18.6667px",
+                      "textDecoration": "underline",
+                      "color": "#0d6abf"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

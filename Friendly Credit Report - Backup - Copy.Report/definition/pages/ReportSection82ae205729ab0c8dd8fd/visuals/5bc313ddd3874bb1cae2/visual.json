@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "5bc313ddd3874bb1cae2",
+  "position": {
+    "x": 9.9617942549879732,
+    "y": 194.25498797226547,
+    "z": 7000,
+    "height": 59.770765529927836,
+    "width": 532.95599264185648,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Total Loan Vs",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "textDecoration": "underline",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "textDecoration": "underline",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": "Total Repayment Loan ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "textDecoration": "underline",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": "Vs",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "textDecoration": "underline",
+                      "color": "#0d6abf"
+                    }
+                  },
+                  {
+                    "value": " Total Overdue Loan",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "textDecoration": "underline",
+                      "color": "#0d6abf"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

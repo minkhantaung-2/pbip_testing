@@ -1,0 +1,74 @@
+table Payroll
+	lineageTag: cd4ee21f-03aa-4f16-a493-882580b6960f
+
+	column year_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9743495c-e0ef-4b59-8cb2-a9aae2d9fec1
+		summarizeBy: sum
+		sourceColumn: year_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 1215b987-8f95-4c1d-ba63-fae965a3ca3f
+		summarizeBy: sum
+		sourceColumn: month_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: 522afb4d-c3bd-414b-a5e8-486d9c22d098
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column companyname
+		dataType: string
+		lineageTag: 1e9b2f4a-edb6-4121-a2ab-aaadb0c6c178
+		summarizeBy: none
+		sourceColumn: companyname
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_kpay_id
+		dataType: string
+		lineageTag: 01a6bdd4-a371-4be2-8b63-a41f6310ef88
+		summarizeBy: none
+		sourceColumn: employee_kpay_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column employee_name
+		dataType: string
+		lineageTag: 7a3f8b37-49b2-49c2-856f-4aa488794b23
+		summarizeBy: none
+		sourceColumn: employee_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Type of employee' =
+			SWITCH(
+			    TRUE(),
+			    'Payroll'[companyname]="KBZ BANK PAYROLL" || 'Payroll'[companyname]="HR (EMPLOYEE BENEFITS)","KBZ Employees","Payrolls")
+		lineageTag: 551deb43-0e7a-46c9-b0c1-314ab12716cd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Payroll = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(AmazonRedshift.Database("kbz-data-warehouse.cmpyslcsge3e.ap-southeast-1.redshift.amazonaws.com:5439","kbz_analytics"), "select year as year_key, month as month_key, channel, #(lf)case #(lf)    when upper(empr_name) in (upper('KBZ Bank HR'),upper('KBZ Bank Payroll')) then upper('KBZ Bank Payroll')#(lf)    else upper(empr_name) #(lf)end as companyName, #(lf)employee_kpay_id, empe_name as employee_name#(lf)from(#(lf)select year,month,channel,amont,empr_reg_no,empe_acc_no,amont,empr_code,empr_type,empr_status,empr_name,empr_township,empr_division,empr_phone,empr_email,empr_address,#(lf)empe_code as employee_kpay_id,empe_type,empe_status,empe_name,empe_township,empe_division,empe_phone,empe_email,empe_address#(lf)from#(lf)(#(lf)select Extract (Year from trn_date) as year,extract (Month from trn_date) as month , empr_id,empe_id,channel,sum(amount) as amont#(lf)from derive.payroll_daily_acc_trn_details#(lf)WHERE trn_date >= date_trunc('month', CURRENT_DATE) - INTERVAL '1 month'#(lf)AND trn_date < date_trunc('month', CURRENT_DATE)#(lf)group by 1,2,3,4,5#(lf))daily#(lf)left join #(lf)(#(lf)select empr_id,empr_reg_no,empr_code,empr_type,empr_status,empr_name,empr_township,empr_division,empr_phone,empr_email,empr_address#(lf)from dimension.payroll_empr_user#(lf))empr on daily.empr_id=empr.empr_id#(lf)left join #(lf)(#(lf)select empe_id,empe_acc_no,empe_code,empe_type,empe_status,empe_name,empe_township,empe_division,empe_phone,empe_email,empe_address#(lf)from dimension.payroll_empe_user#(lf))empe on daily.empe_id=empe.empe_id#(lf))payfinal#(lf)inner join #(lf)(#(lf)SELECT#(lf)to_char(#(lf)kbzpayfriendlycredittransaction.initiatetime,'YYYYMM':: text):: integer AS monthkey,#(lf)kbzpayfriendlycredittransaction.externalidentityid#(lf)FROM#(lf)base.kbzpayfriendlycredittransaction#(lf)WHERE#(lf)kbzpayfriendlycredittransaction.buscope:: text = 'DIS':: text#(lf))s ON s.externalidentityid:: text = payfinal.employee_kpay_id:: text", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

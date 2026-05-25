@@ -1,0 +1,73 @@
+relationship a7fb648a-2975-479d-bee1-dc0828f9db02
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FCDisburse.datadate
+	toColumn: LocalDateTable_d1bcc970-48ae-497c-9e1e-b889d278fb5b.Date
+
+relationship 039ce9d0-7b81-4208-b31b-58dd0747d6f4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FCDisburse.rep_mindate
+	toColumn: LocalDateTable_e4509b88-5df6-4d90-8f3d-36218ee6b9c5.Date
+
+relationship 0d29b12d-5754-44ec-a5b6-6ce5e6bb7f6f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FCDisburse.rep_maxdate
+	toColumn: LocalDateTable_d9321a64-690a-4ece-b095-bc5156d16f28.Date
+
+relationship d3111aef-988d-4edd-9c19-d783fd14d598
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FCDisburse.initiatetime
+	toColumn: LocalDateTable_d9b79498-878c-4206-886d-6079943e2059.Date
+
+relationship 170bebe5-7077-459b-bc62-6094996e8d15
+	crossFilteringBehavior: bothDirections
+	fromColumn: Customer.'Age Range'
+	toColumn: 'Age Range'.'Age Range'
+
+relationship ef22707f-9072-4f92-a711-c0f61e34f90a
+	crossFilteringBehavior: bothDirections
+	fromColumn: FCDisburse.externalidentityid
+	toColumn: Customer.customer_id
+
+relationship da2d6353-127e-4f1a-b318-80f8dcb09f6e
+	crossFilteringBehavior: bothDirections
+	fromColumn: FCDisburse.'Payment Date'
+	toColumn: Calendar.cal_date
+
+relationship a71dd2fe-55d2-471e-9e18-5ba5a7c66a96
+	crossFilteringBehavior: bothDirections
+	fromColumn: Payroll.employee_kpay_id
+	toColumn: Customer.customer_id
+
+relationship 7b513283-1dbd-42a9-988a-2e49b3182cff
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: FCDisburse.externalidentityid
+	toColumn: Payroll.employee_kpay_id
+
+relationship 41b9b2db-bdf6-42ba-baef-a2da14bfbf6f
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Issue_AccNo.Issue_AccNo
+	toColumn: FCDisburse.accountno
+
+relationship 05883b71-78ab-48ec-b2b9-6d60e025bd21
+	fromColumn: FCDisburse.'Credit Limit Range'
+	toColumn: 'Credit Limit'.'Credit Limit Range'
+
+relationship 8330d634-2e9f-4dd6-ae2c-0ca67a3648c8
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: WrongAccessFees.ACCOUNT_NO
+	toColumn: FCDisburse.accountno
+
+relationship 1ecccaa2-d855-4105-8aef-bb81249368bd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: New_Calendar.cal_date
+	toColumn: LocalDateTable_fa447574-6a00-4d5a-a6e9-a0f66938a730.Date
+
+relationship 3f3dc1c3-f54f-41ab-abc6-866297a08e6a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FCDisburse.'Last Repayment Date'
+	toColumn: LocalDateTable_987d6f00-939f-4a1a-b388-1e9cfc707aa4.Date
+

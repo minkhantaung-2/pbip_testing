@@ -1,0 +1,438 @@
+table _Measure
+	lineageTag: d19ec27b-6dbc-4e0d-9183-9aa77ec866c2
+
+	measure 'Total Payment' = SUM('FCDisburse'[Actual Payment Amt])
+		formatString: #,0
+		lineageTag: e73a3695-a4c4-455d-9c27-18e86d44feb9
+
+	measure 'Total Repayment' = sum('FCDisburse'[repayment_amount])
+		formatString: #,0
+		lineageTag: cd63115f-bc0d-4b7f-8aef-56d32d8f281f
+
+	measure 'Total Principal' = sum('FCDisburse'[principal])
+		formatString: #,0
+		lineageTag: c681c59b-539c-4f33-a477-a63f5ea80caf
+
+	measure 'Total Profit' = [Total Payment] - [Total Principal]
+		formatString: #,0
+		lineageTag: ec44b939-4f4d-4106-8d74-a3845058f206
+
+	measure 'Total Coupon' = sum('FCDisburse'[Coupon])
+		formatString: #,0
+		lineageTag: a6fe096b-ddd0-4c6c-84b7-445b817ee94e
+
+	measure 'YTD Profit' = CALCULATE([Total Profit],DATESYTD('Calendar'[cal_date],"3/31"))
+		formatString: 0
+		lineageTag: d77d9258-7d46-476d-8b2a-b232e812af16
+
+	measure 'YTD Profit LY' =
+			CALCULATE(
+			    [Total Profit],
+			    DATESBETWEEN(
+			        'Calendar'[cal_date],
+			        EDATE(MIN('Calendar'[cal_date]),-12),
+			        EOMONTH(MAX('Calendar'[cal_date]),-12)
+			    ))
+		formatString: 0
+		lineageTag: 05d139e6-e932-42e6-82da-74ad34785031
+
+	measure 'Total Outstanding' = sum('FCDisburse'[Total_Outstanding])
+		formatString: #,0
+		lineageTag: b2a86d4e-04d7-4910-b42b-1d44d2a5886f
+
+	measure 'Total Loan' = DISTINCTCOUNT('FCDisburse'[accountno])
+		formatString: #,0
+		lineageTag: cb50f222-8fbf-439f-9aac-9727397e39c7
+
+	measure 'Prev Month Loan' =
+			
+			var prev = CALCULATE(count('FCDisburse'[accountno]), PREVIOUSMONTH('Calendar'[cal_date]))
+			return if(ISBLANK(prev),0,prev)
+		formatString: #,0
+		lineageTag: 0e86c387-d611-4d6a-8420-74a0653b97f2
+
+	measure 'Loan Growth %' = DIVIDE([Total Loan]-[Prev Month Loan],[Prev Month Loan])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0fff79b3-917d-4220-b656-317f45b942f2
+
+	measure 'Total Service Fee' = sum('FCDisburse'[Service Fee])
+		formatString: #,0
+		lineageTag: 5c295768-d3d4-4302-9c9b-df790543c65f
+
+	measure 'Total Repay Loan' = CALCULATE(COUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Repayment_count]<>BLANK()))
+		formatString: #,0
+		lineageTag: a2f39734-641f-4d07-9137-1a7c6af5fb1d
+
+	measure 'Total Overdue Loan' = [Total Loan] - [Total Repay Loan]
+		formatString: #,0
+		lineageTag: e1ab4cf8-80e6-4716-8364-63444454c822
+
+	measure 'DPD 90 Plus Amt' =
+			
+			Var a = CALCULATE(sum('FCDisburse'[Total_Outstanding]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>90))
+			RETURN IF(ISBLANK(a) || ISERROR(a),0,a)
+		formatString: #,0
+		lineageTag: 6fb336c9-1d83-4ada-8146-76e9b2a84c1c
+
+	measure 'Coupon Customer' = CALCULATE(DISTINCTCOUNT('FCDisburse'[externalidentityid]),FILTER('FCDisburse','FCDisburse'[Coupon]=60))
+		formatString: #,0
+		lineageTag: d5206333-4db2-4705-a000-8635f14560c0
+
+	measure 'Coupon Count' = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Coupon]=60))
+		formatString: #,0
+		lineageTag: 407bb000-1f01-497a-9574-62ece844e662
+
+	measure 'Prev Day Loan' =
+			
+			var prev = CALCULATE(count('FCDisburse'[accountno]), PREVIOUSDAY('Calendar'[cal_date]))
+			return if(ISBLANK(prev),0,prev)
+		formatString: 0
+		lineageTag: 0f78cdb6-bc90-42b7-b39e-7dbe07d975fb
+
+	measure 'Day Loan Growth %' = DIVIDE([Total Loan]-[Prev Day Loan],[Prev Day Loan])
+		formatString: 0%;-0%;0%
+		lineageTag: 00b5233a-7cb4-4c29-be6c-ef49502e762f
+
+	measure 'Prev Day Overdue Amt' =
+			
+			var prev = CALCULATE(SUM('FCDisburse'[Total_Outstanding]), PREVIOUSDAY('Calendar'[cal_date]))
+			return if(ISBLANK(prev),0,prev)
+		formatString: 0
+		lineageTag: 646949fe-f08c-4176-aa96-3a2db895509b
+
+	measure 'Day Overdue Growth %' = DIVIDE([DPD 90 Plus Amt]-[Prev Day Overdue Amt],[Prev Day Overdue Amt])
+		formatString: 0%;-0%;0%
+		lineageTag: d928ab21-967c-43e5-9134-84d56ca43a8a
+
+	measure 'Grace Period Count' = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Loan Status]="Grace Period"))
+		formatString: 0
+		lineageTag: 9738fa52-d12c-4cb7-9136-5c9ee82f6901
+
+	measure 'DPD1_30 Count' = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Loan Status]="1 to 30"))
+		formatString: 0
+		lineageTag: 4e6eeeb9-7025-43b2-b478-1928832d53db
+
+	measure 'DPD30+ Count' = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>30))
+		formatString: #,0
+		lineageTag: b42fa6ae-5ebd-4c64-a558-b9269ef2ded5
+
+	measure 'Grace Period Count %' = [Grace Period Count]/[Total Loan]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fad5b443-574b-4326-99e8-d79b6e7a0fed
+
+	measure 'DPD1_30 Count %' = [DPD1_30 Count]/[Total Loan]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dfd9927d-b806-4721-aee6-e217156ea80f
+
+	measure 'DPD30+ Count %' = [DPD30+ Count]/[Total Loan]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 144d6eca-16c4-4a6a-8cf4-54b5f0275bfe
+
+	measure 'Grace Period Payment' = CALCULATE(SUM('FCDisburse'[Actual Payment Amt]),FILTER('FCDisburse','FCDisburse'[Loan Status]="Grace Period"))
+		formatString: 0
+		lineageTag: e4e8697f-b19b-4416-b174-a5140e7aef48
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'DPD1_30 Payment' = CALCULATE(SUM('FCDisburse'[Actual Payment Amt]),FILTER('FCDisburse','FCDisburse'[Loan Status]="1 to 30"))
+		formatString: 0
+		lineageTag: 037a4e09-e7d7-433c-88ff-aace53348fea
+
+	measure 'DPD30+ Payment' = CALCULATE(SUM('FCDisburse'[Actual Payment Amt]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>30))
+		formatString: 0
+		lineageTag: 9599cd2f-acd5-4269-853d-b11264ef1acd
+
+	measure 'Grace Period Payment %' = [Grace Period Payment]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c57e1681-b1e3-4f3f-852f-47c8993d22fb
+
+	measure 'DPD1_30 Payment %' = [DPD1_30 Payment]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ce709ae7-034d-42d2-92bb-d4449cb3b6bb
+
+	measure 'DPD30+ Payment %' = [DPD30+ Payment]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5e8b666e-edf9-4d6c-aa76-116fc920a953
+
+	measure 'Total Loan test' = SUMX(ALL('FCDisburse'), CALCULATE(COUNT('FCDisburse'[accountno])))
+		formatString: 0
+		lineageTag: 65776804-992c-43e2-a3ad-89c9594467a7
+
+	measure 'Total Transaction' = CALCULATE(count('FCDisburse'[accountno]),FILTER('Calendar','Calendar'[cal_date]=TODAY()))
+		formatString: 0
+		lineageTag: bf8a8461-b232-4df5-abaf-e566a7bb16b6
+
+	measure 'DPD 90 Plus Count' =
+			
+			Var a = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>90))
+			return IF(ISBLANK(a) || ISERROR(a),0,a)
+		formatString: #,0
+		lineageTag: c3e7362f-0f8a-4b5c-b9c3-985b77410f51
+
+	measure 'Total DPD' =
+			
+			Var a = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),'FCDisburse'[Loan Status]<>"Paid" && FCDisburse[Loan Status]<>"Grace Period")
+			RETURN IF(ISBLANK(a) || ISERROR(a),0,a)
+		formatString: #,0
+		lineageTag: cbdc3377-8bae-4369-9da6-ea9eb5fe60b5
+
+	measure 'Paid Count' = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Loan Status]="Paid"))
+		formatString: 0
+		lineageTag: e3337ab4-9161-4ae8-b288-59df6068918c
+
+	measure 'Paid Count %' = [Paid Count]/[Total Loan]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ef2c209e-dde6-4b52-ab57-aea7b89a44e8
+
+	measure 'Paid Payment' = CALCULATE(SUM('FCDisburse'[Actual Payment Amt]),FILTER('FCDisburse','FCDisburse'[Loan Status]="Paid"))
+		lineageTag: 57f63a19-ed68-4390-bf4e-b40e04653c18
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Paid Payment %' = [Paid Payment]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b6532ab5-0872-46af-90cd-f9cd2ee4a54a
+
+	measure 'Total Customer' = DISTINCTCOUNT('Customer'[customer_id])
+		formatString: #,0
+		lineageTag: 49317913-aeb4-4c6a-b729-56de8923f7b2
+
+	measure 'Total DPD Amt' =
+			
+			Var a = CALCULATE(sum('FCDisburse'[Total_Outstanding]),FILTER('FCDisburse','FCDisburse'[Loan Status]<>"Paid" && FCDisburse[Loan Status]<>"Grace Period"))
+			RETURN IF(ISBLANK(a) || ISERROR(a),0,a)
+		lineageTag: 3e85364f-0608-48f3-aa9b-8db60df0eb54
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DPD 180 Plus Count' =
+			
+			Var a = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>180))
+			return IF(ISBLANK(a) || ISERROR(a),0,a)
+		formatString: #,0
+		lineageTag: bb965c3e-2777-456d-b804-4f6fbe8a2c9e
+
+	measure 'DPD 30 Plus Amt' =
+			
+			Var a = CALCULATE(sum('FCDisburse'[Total_Outstanding]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>30))
+			RETURN IF(ISBLANK(a) || ISERROR(a),0,a)
+		lineageTag: 8d66c155-bfe5-4912-a343-e955d86bf980
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DPD 180 Plus Amt' =
+			
+			Var a = CALCULATE(sum('FCDisburse'[Total_Outstanding]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>180))
+			RETURN IF(ISBLANK(a) || ISERROR(a),0,a)
+		lineageTag: be499e3f-8c8c-4697-a802-71403f706f11
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Unique Customer DPD' =
+			
+			Var a = CALCULATE(DISTINCTCOUNT('FCDisburse'[externalidentityid]),'FCDisburse'[Loan Status]<>"Paid" && FCDisburse[Loan Status]<>"Grace Period")
+			RETURN IF(ISBLANK(a) || ISERROR(a),0,a)
+		formatString: #,0
+		lineageTag: f766f53c-3ed1-4c2a-ae98-b6c464f221e3
+
+	measure DPD90Plus_Amt_by_TotalOutstanding = [DPD 90 Plus Amt]/[Total Outstanding]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0b8168c6-dc01-4024-80c8-5d56d67fcc89
+
+	measure DPD180Plus_Amt_by_TotalOutstanding = [DPD 180 Plus Amt]/[Total Outstanding]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5e0798ee-6b88-45c6-bc15-c29785299322
+
+	measure DPD180Plus_Amt_by_TotalProfit = [DPD 180 Plus Amt]/[Total Profit]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: eb916db8-ddca-410c-a420-13c501480906
+
+	measure DPD90Plus_Amt_by_TotalProfit = [DPD 90 Plus Amt]/[Total Profit]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ed003a84-eb4c-4cb5-910c-30886d77f940
+
+	measure DPD90Plus_Amt_by_TotalPayment = [DPD 90 Plus Amt]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b9753424-01e1-43af-aed9-1390c13ee424
+
+	measure DPD180Plus_Amt_by_TotalPayment = [DPD 180 Plus Amt]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d4f8c7b5-8a0b-452d-8715-490c722a5ef9
+
+	measure 'DPD 180 Plus Amt WT Frozen_Suspend' =
+			
+			Var a = CALCULATE(sum('FCDisburse'[Total_Outstanding]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>180 && ('FCDisburse'[Account Status]<>"Frozen" && 'FCDisburse'[Account Status]<>"Suspended")))
+			RETURN IF(ISBLANK(a) || ISERROR(a),0,a)
+		lineageTag: f9367f7b-9839-4c07-a75a-be63dbc6c114
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DPD 90 Plus Amt WT Frozen_Suspend' = ```
+			
+			VAR a = 
+			    CALCULATE(
+			        SUM('FCDisburse'[Total_Outstanding]),
+			        FILTER(
+			            'FCDisburse',
+			            'FCDisburse'[DayPastDue] > 90 &&
+			                'FCDisburse'[Account Status] <> "Frozen" &&
+			                'FCDisburse'[Account Status] <> "Suspended"
+			            )
+			        )
+			    
+			RETURN 
+			    IF(ISBLANK(a), 0, a)
+			
+			```
+		lineageTag: 93bab819-fbff-4e60-950d-a82155b66208
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DPD 180 Plus Count WT Frozen_Suspend' =
+			
+			Var a = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>180 && ('FCDisburse'[Account Status]<>"Frozen" && 'FCDisburse'[Account Status]<>"Suspended")))
+			return IF(ISBLANK(a) || ISERROR(a),0,a)
+		formatString: 0
+		lineageTag: 3c6167c0-e2cf-41ac-931f-d924206ee5cc
+
+	measure 'DPD 90 Plus Count WT Frozen_Suspend' =
+			
+			Var a = CALCULATE(DISTINCTCOUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[DayPastDue]>90 && ('FCDisburse'[Account Status]<>"Frozen" && 'FCDisburse'[Account Status]<>"Suspended")))
+			return IF(ISBLANK(a) || ISERROR(a),0,a)
+		formatString: 0
+		lineageTag: d0e1d4e3-8b53-4806-9ca4-3d797c4ad613
+
+	measure DPD90Plus_Amt_WT_Frozen_Suspend_by_TotalOutstanding = [DPD 90 Plus Amt WT Frozen_Suspend]/[Total Outstanding]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a8cf3275-54e5-4ec3-8876-5e34ef3be1b0
+
+	measure DPD90Plus_Amt_WT_Frozen_Suspend_by_TotalProfit = [DPD 90 Plus Amt WT Frozen_Suspend]/[Total Profit]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bf83c768-cb18-4b05-a7cb-8ae325238fc8
+
+	measure DPD180Plus_Amt_WT_Frozen_Suspend_by_TotalPayment = [DPD 180 Plus Amt WT Frozen_Suspend]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6ce8fa8e-e1ee-4cca-8482-e2d059b88e11
+
+	measure DPD180Plus_Amt__WT_Frozen_Suspend_by_TotalOutstanding = [DPD 180 Plus Amt WT Frozen_Suspend]/[Total Outstanding]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a0af629a-dd4e-4402-bd45-d77b07eef833
+
+	measure DPD180Plus_Amt__WT_Frozen_Suspend_by_TotalProfit = [DPD 180 Plus Amt WT Frozen_Suspend]/[Total Profit]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2e9a54f6-6abe-480c-8bec-32e264ad7c57
+
+	measure DPD90Plus_Amt_WT_Frozen_Suspend_by_TotalPayment = [DPD 90 Plus Amt WT Frozen_Suspend]/[Total Payment]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3ee10509-3386-4101-94c5-c08c46a0d976
+
+	measure 'Frozen All DPD' = CALCULATE(COUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Account Status]="Frozen" && 'FCDisburse'[Loan Status]<>"Paid"))
+		formatString: 0
+		lineageTag: 116e04d1-e16f-41f8-840a-d88878e23627
+
+	measure 'Frozen DPD180Plus' = CALCULATE(COUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Account Status]="Frozen" && 'FCDisburse'[Loan Status]="180+"))
+		formatString: 0
+		lineageTag: c3f0913e-6f77-4ee3-90ee-58e702b7fd6f
+
+	measure 'Suspend All DPD' = CALCULATE(COUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Account Status]="Suspended" && 'FCDisburse'[Loan Status]<>"Paid"))
+		formatString: 0
+		lineageTag: 6f125c00-5619-4e0c-8ac4-fbb5a4abb1ac
+
+	measure 'Suspend DPD180Plus' = CALCULATE(COUNT('FCDisburse'[accountno]),FILTER('FCDisburse','FCDisburse'[Account Status]="Suspended" && 'FCDisburse'[Loan Status]="180+"))
+		formatString: 0
+		lineageTag: a3918069-a483-4208-9d6b-eff1bf405f03
+
+	measure 'Frozen All DPD %' = [Frozen All DPD]/[Total DPD]
+		formatString: 0.000%;-0.000%;0.000%
+		lineageTag: 61065e71-424f-44bc-b80e-b112e825de42
+
+	measure 'Suspend All DPD %' = [Suspend All DPD]/[Total DPD]
+		formatString: 0.000%;-0.000%;0.000%
+		lineageTag: 3b646d9c-abb9-4898-94fd-80fa03b1fa2a
+
+	measure 'Frozen 180 DPD %' = [Frozen DPD180Plus]/[Total DPD]
+		formatString: 0.000%;-0.000%;0.000%
+		lineageTag: 0e025aa2-8b1b-41be-9594-b7de1a736294
+
+	measure 'Suspend 180 DPD %' = [Suspend DPD180Plus]/[Total DPD]
+		formatString: 0.000%;-0.000%;0.000%
+		lineageTag: 292c77f8-079d-498b-ad39-1598347e8145
+
+	measure 'Total Existing DPD' = CALCULATE(COUNT('FCDisburse'[Total Existing DPD]),FILTER('FCDisburse','FCDisburse'[Loan Status]<>"Paid" && FCDisburse[Loan Status]<>"Grace Period"))
+		formatString: 0
+		lineageTag: 36b512b8-fafd-4a54-ba9f-d87dc4524033
+
+	measure 'Frozen All DPD Amt' = ```
+			
+			CALCULATE(
+			    SUM('FCDisburse'[Total_Outstanding]) / 1000000,
+			    FILTER(
+			        'FCDisburse',
+			        'FCDisburse'[Account Status] = "Frozen" &&
+			        'FCDisburse'[Loan Status] <> "Paid"
+			    )
+			)
+			
+			```
+		lineageTag: 455c5345-9a3f-465d-972b-c4346663e37d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Frozen DPD 180Plus Amt' =
+			
+			CALCULATE(
+			    SUM('FCDisburse'[Total_Outstanding]) / 1000000,
+			    FILTER(
+			        'FCDisburse',
+			        'FCDisburse'[Account Status] = "Frozen" &&
+			        'FCDisburse'[Loan Status]="180+"
+			    )
+			)
+		lineageTag: 0bafd591-9861-435c-8dd2-1a9c7eb8487e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Suspended All DPD Amt' = ```
+			
+			CALCULATE(
+			    SUM('FCDisburse'[Total_Outstanding]) / 1000000,
+			    FILTER(
+			        'FCDisburse',
+			        'FCDisburse'[Account Status] = "Suspended" &&
+			        'FCDisburse'[Loan Status] <> "Paid"
+			    )
+			)
+			
+			```
+		lineageTag: 4ee91c37-7546-4e4e-afad-9f001a27c712
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Suspended DPD 180Plus Amt' =
+			
+			CALCULATE(
+			    SUM('FCDisburse'[Total_Outstanding]) / 1000000,
+			    FILTER(
+			        'FCDisburse',
+			        'FCDisburse'[Account Status] = "Suspended" &&
+			        'FCDisburse'[Loan Status]="180+"
+			    )
+			)
+		lineageTag: 226e1656-3027-4d26-ab0d-1f467e2b8479
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		lineageTag: 7e224b97-34b0-4ed0-b2f9-780bc2621112
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measure = calculated
+		mode: import
+		source = {"z"}
+
+	annotation PBI_Id = 670c133860284aafa9d88f4963a85e94
+

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "8c7dfe2422a00ca0e9b8",
+  "position": {
+    "x": 17.1900826446281,
+    "y": 405.95041322314052,
+    "z": 17000,
+    "height": 72.727272727272734,
+    "width": 174.54545454545456,
+    "tabOrder": 17000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "HasMultipleLoans"
+                }
+              },
+              "queryRef": "FCDisburse.HasMultipleLoans",
+              "nativeQueryRef": "Multiple Loans",
+              "active": true,
+              "displayName": "Multiple Loans"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

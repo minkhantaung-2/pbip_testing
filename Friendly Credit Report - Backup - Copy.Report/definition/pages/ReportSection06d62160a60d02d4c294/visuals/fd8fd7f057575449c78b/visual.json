@@ -1,0 +1,1506 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "fd8fd7f057575449c78b",
+  "position": {
+    "x": 23.801652892561982,
+    "y": 223.14049586776858,
+    "z": 5000,
+    "height": 577.19008264462809,
+    "width": 2276.0330578512394,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Loan Status"
+                }
+              },
+              "queryRef": "FCDisburse.Loan Status",
+              "nativeQueryRef": "Loan Status",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendar"
+                    }
+                  },
+                  "Property": "date"
+                }
+              },
+              "queryRef": "Calendar.date",
+              "nativeQueryRef": "Date",
+              "active": true,
+              "displayName": "Date"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "accountno"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(FCDisburse.accountno)",
+              "nativeQueryRef": "Count of accountno",
+              "displayName": "Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measure"
+                    }
+                  },
+                  "Property": "Day Loan Growth %"
+                }
+              },
+              "queryRef": "_Measure.Day Loan Growth %",
+              "nativeQueryRef": "%",
+              "displayName": "%"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendar"
+                  }
+                },
+                "Property": "date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Calendar.date"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0271C7'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "235.61736138550884D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FC Disburse.employer name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.33335521894995D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "Dis_Repay_Date_Range"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'30+'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.58581628068913D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FC Disburse"
+                        }
+                      },
+                      "Property": "Dis_Repay_Date_Range"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.99999187611428D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "Dis_Repay_Date_Range"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'1 to 10'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "188.9525911491794D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FC Disburse"
+                        }
+                      },
+                      "Property": "DPD Range Test1"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "182.20362839395386D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'PL'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "182.38697806268678D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'30+'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.35224665475633D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'21 to 30'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "169.9088840547166D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'11 to 20'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143.82888975004894D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'1 to 10'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.47290884801805D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'1 to 10'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.66359871145882D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'11 to 20'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.44159993586693D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'30+'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.10859875639851D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'PL'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "101.09989939037517D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range Test1"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'21 to 30'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.31571129462873D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'1 to 10'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.49997611969593D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'11 to 20'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "95.99987202331144D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'21 to 30'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.99998971820582D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'CL'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.50004729922938D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FC Disburse"
+                          }
+                        },
+                        "Property": "DPD Range"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'PL'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "243.1366577743754D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Calendar.date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "185.11963777623606D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Paid'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "183.32016208258966D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'1 to 30'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "162.37259977347094D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'31 to 60'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "156.0719277220103D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'61 to 90'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "181.05879903950935D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'91 to 180'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "176.3549048621403D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'180+'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "_Measure.Day Loan Growth %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "152.3921625418518D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Paid'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(FCDisburse.accountno)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.50980918513096D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'1 to 30'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(FCDisburse.accountno)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "166.1175950424754D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'31 to 60'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(FCDisburse.accountno)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "166.11772215019448D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'61 to 90'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(FCDisburse.accountno)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.96086566271066D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'91 to 180'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(FCDisburse.accountno)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "173.96100336311164D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FCDisburse"
+                          }
+                        },
+                        "Property": "Loan Status"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'180+'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(FCDisburse.accountno)"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "eddd7fc2430cccd04421",
+  "position": {
+    "x": 221.42857142857144,
+    "y": 561.42857142857144,
+    "z": 15000,
+    "height": 441.42857142857144,
+    "width": 1164.2857142857144,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendar"
+                    }
+                  },
+                  "Property": "FY Year"
+                }
+              },
+              "queryRef": "Calendar.FY Year",
+              "nativeQueryRef": "FY Year"
+            },
+            {
+              "field": {
+                "GroupRef": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendar"
+                    }
+                  },
+                  "Property": "Month New (groups)",
+                  "GroupedColumns": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Calendar"
+                          }
+                        },
+                        "Property": "Month New"
+                      }
+                    }
+                  ]
+                }
+              },
+              "queryRef": "Calendar.Month New (groups)",
+              "nativeQueryRef": "Month",
+              "displayName": "Month"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendar"
+                    }
+                  },
+                  "Property": "FY Quarter"
+                }
+              },
+              "queryRef": "Calendar.FY Quarter",
+              "nativeQueryRef": "FY Quarter"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "accountno"
+                }
+              },
+              "queryRef": "FCDisburse.accountno",
+              "nativeQueryRef": "Account No1",
+              "displayName": "Account No"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "Customer.customer_id",
+              "nativeQueryRef": "Customer ID",
+              "displayName": "Customer ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "productid"
+                }
+              },
+              "queryRef": "FCDisburse.productid",
+              "nativeQueryRef": "Product ID",
+              "displayName": "Product ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "customer_gender"
+                }
+              },
+              "queryRef": "Customer.customer_gender",
+              "nativeQueryRef": "Gender1",
+              "displayName": "Gender"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "Age Range"
+                }
+              },
+              "queryRef": "Customer.Age Range",
+              "nativeQueryRef": "Age Range1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Payment Date"
+                }
+              },
+              "queryRef": "FCDisburse.Payment Date",
+              "nativeQueryRef": "Payment Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "business_type"
+                }
+              },
+              "queryRef": "FCDisburse.business_type",
+              "nativeQueryRef": "Business Type",
+              "displayName": "Business Type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Credit Limit Range"
+                }
+              },
+              "queryRef": "FCDisburse.Credit Limit Range",
+              "nativeQueryRef": "Credit Limit Range"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "HasMultipleLoans"
+                }
+              },
+              "queryRef": "FCDisburse.HasMultipleLoans",
+              "nativeQueryRef": "HasMultipleLoans"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "principal"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.principal)",
+              "nativeQueryRef": "Principal1",
+              "displayName": "Principal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "accessfee"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.accessfee)",
+              "nativeQueryRef": "Access Fees",
+              "displayName": "Access Fees"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Service Fees New"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.Service Fees New)",
+              "nativeQueryRef": "Service Fees",
+              "displayName": "Service Fees"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Coupon"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.Coupon)",
+              "nativeQueryRef": "Coupon1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "payment amt"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.payment amt)",
+              "nativeQueryRef": "Payment Amt",
+              "displayName": "Payment Amt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Actual Payment Amt"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.Actual Payment Amt)",
+              "nativeQueryRef": "Actual Payment Amt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Last Repayment Date"
+                }
+              },
+              "queryRef": "FCDisburse.Last Repayment Date",
+              "nativeQueryRef": "Last Repayment Date1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Repayment_Amt"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.Repayment_Amt)",
+              "nativeQueryRef": "Repayment_Amt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Total_Outstanding"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.Total_Outstanding)",
+              "nativeQueryRef": "Total_Outstanding"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Loan Status"
+                }
+              },
+              "queryRef": "FCDisburse.Loan Status",
+              "nativeQueryRef": "Loan Status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "DayPastDue"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.DayPastDue)",
+              "nativeQueryRef": "DayPastDue"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Repayment_count"
+                }
+              },
+              "queryRef": "Sum(FCDisburse.Repayment_count)",
+              "nativeQueryRef": "Repayment Count",
+              "displayName": "Repayment Count"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "customer_name"
+                }
+              },
+              "queryRef": "Customer.customer_name",
+              "nativeQueryRef": "Customer Name1",
+              "displayName": "Customer Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "phone_no"
+                }
+              },
+              "queryRef": "Customer.phone_no",
+              "nativeQueryRef": "Customer Phone No1",
+              "displayName": "Customer Phone No"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "company name"
+                }
+              },
+              "queryRef": "FCDisburse.company name",
+              "nativeQueryRef": "Company Name",
+              "displayName": "Company Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "TypeOfCustomer"
+                }
+              },
+              "queryRef": "FCDisburse.TypeOfCustomer",
+              "nativeQueryRef": "TypeOfCustomer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "isbankacclink"
+                }
+              },
+              "queryRef": "Customer.isbankacclink",
+              "nativeQueryRef": "BankAccLink1",
+              "displayName": "BankAccLink"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCDisburse"
+                    }
+                  },
+                  "Property": "Score"
+                }
+              },
+              "queryRef": "FCDisburse.Score",
+              "nativeQueryRef": "Score"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "cusaccstatus"
+                }
+              },
+              "queryRef": "Customer.cusaccstatus",
+              "nativeQueryRef": "Account Status",
+              "displayName": "Account Status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "Customer.Region",
+              "nativeQueryRef": "Region1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "onb_township"
+                }
+              },
+              "queryRef": "Customer.onb_township",
+              "nativeQueryRef": "Township",
+              "displayName": "Township"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FCDisburse"
+                  }
+                },
+                "Property": "Total_Outstanding"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0271C7'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FCDisburse.principal)"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FCDisburse.payment amt)"
+          }
+        },
+        {
+          "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FCDisburse.Actual Payment Amt)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "isHidden": true
+}

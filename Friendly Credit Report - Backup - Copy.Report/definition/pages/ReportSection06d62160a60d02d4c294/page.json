@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection06d62160a60d02d4c294",
+  "displayName": "DPD Tracking",
+  "displayOption": "FitToPage",
+  "height": 1800,
+  "width": 2300,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#D1E4F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "40D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

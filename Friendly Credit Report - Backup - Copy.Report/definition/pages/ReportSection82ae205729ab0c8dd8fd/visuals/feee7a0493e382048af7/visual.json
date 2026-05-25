@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "feee7a0493e382048af7",
+  "position": {
+    "x": 0,
+    "y": 692.344700721664,
+    "z": 9000,
+    "height": 39.847177019951893,
+    "width": 639.21513136172825,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Type of Customer by Total Loan & Repayment Loan & Overdue Loan ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18.6667px",
+                      "textDecoration": "underline",
+                      "color": "#0d6abf"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,1648 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "Customer Behaviour Vis",
+  "name": "741d13f56c7803c2b7ac",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "a70a341777a7c00202e4",
+    "filters": {
+      "byName": {
+        "1b4afdc950090768d933": {
+          "name": "1b4afdc950090768d933",
+          "type": "Categorical",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "c",
+                "Entity": "Calendar",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Not": {
+                    "Expression": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "c"
+                                }
+                              },
+                              "Property": "FY Year"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "Calendar"
+                }
+              },
+              "Property": "FY Year"
+            }
+          },
+          "howCreated": 1
+        },
+        "Filterc01895a08c2e37bc7b77": {
+          "name": "Filterc01895a08c2e37bc7b77",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "Credit Limit"
+                }
+              },
+              "Property": "Credit Limit Range"
+            }
+          },
+          "howCreated": 1
+        }
+      }
+    },
+    "sections": {
+      "a70a341777a7c00202e4": {
+        "visualContainers": {
+          "7aa7572beb217075d2d9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d8e1bdc486274a750e3c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Loan Status"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Loan Status"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "8c7dfe2422a00ca0e9b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7e17c193edb8fab908a4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Day"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Day"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "002c9327223e02ede3ab": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "86f25e5cd19a2f2a6cab",
+                  "type": "Categorical",
+                  "expression": {
+                    "GroupRef": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Month New (groups)",
+                      "GroupedColumns": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendar"
+                              }
+                            },
+                            "Property": "Month New"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "GroupRef": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Month New (groups)",
+                      "GroupedColumns": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendar"
+                              }
+                            },
+                            "Property": "Month New"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ddf3372ae49d57c9d039": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "097fd21aa8f421335442",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "FY Year"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "FY Year"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "1a1910f378ddc04c5c50": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8ea5124b93328ae85de8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "TypeOfCustomer"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "TypeOfCustomer"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "98b82e7826c2d87c5084": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "eddc2fa4be993f1d03ac",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "business_type"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "business_type"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ff598f1d9d9b8c93818b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d10bff8d6658b86d68d7",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "cal_date"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Between'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "cal_date"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d3851e0386ca64105d0e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "de1a244bc3648583523a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d4385bcf8a56e1bc163e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Credit Limit Range"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Credit Limit Range"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2d57455b59c6a70299e6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4d5fa0bce2e386cc1715",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "cusaccstatus"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "cusaccstatus"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "399b460e336a5e0021ab": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "9831cf6dac18c1a507c1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f954dff905d9ed93b7fb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FCDisburse"
+                            }
+                          },
+                          "Property": "accountno"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FC Disburse"
+                            }
+                          },
+                          "Property": "accountno"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "c077a410041790417380": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "608bcdb2e1872ffec368",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Profit"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Profit"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "c2d5375d04d0c67b82b9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9deb6894de1fd3263fec",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Principal"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Principal"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "c741278a2b149688710d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d1190ac69970231cf42b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Payment"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Payment"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "9977c644508dd8e7b50d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b563362a29abe49c801d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Repayment"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Repayment"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "9690a3b2033045200298": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f4afad25e4f74599d5e3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total DPD Amt"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total DPD Amt"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "bc9ed7701cc9ae1d0e75": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b8880bbb070d7172a434",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "DPD 90 Plus Amt"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "68bb04756921220c9d6b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a8a6147c7642dd94c987",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "DPD 90 Plus Count"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "6645e5e5a79a0c910010": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "c5804ce684ab84a60b44": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "cc731995c1e9025309b5": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "7e54fd170c96d0a3b261": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "1bedd1743097a6002627": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "15260debeba602e7b4d9": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "706c6be50811d7548954": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "30a5ce7478a5580d5b40": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "345fd8c646da55df4f6e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "HasMultipleLoans"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "848dd8e98ae5b7f8c181",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Customer"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Customer"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "HasMultipleLoans"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "6d59eba34165a70b2258": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a25f8f5a6915c54521b3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "externalidentityid"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f55cbe3cccd46cdbc5e0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Loan"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "97f725943dff55cda89c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Payment"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "95baaea6f5b86b6d023b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FCDisburse"
+                            }
+                          },
+                          "Property": "Loan Status"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bb4058b4148ba2e1f85a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "phone_no"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "41ca83bfbf06838bf506",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "TypeOfCustomer"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "13e2be21f43b7aaa7d50",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Account Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f4e3837cc1c4cbfefb82",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "customer_age"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f93c5602823bed1af921",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "customer_gender"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "157559de525113a7ca36",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "customer_name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "643326137d289bece942",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Outstanding"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dbe6296af32def744003",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FCDisburse"
+                            }
+                          },
+                          "Property": "Payment Date"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c3300b734a8259bf2a47",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FCDisburse"
+                            }
+                          },
+                          "Property": "Last Repayment Date"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7e786ef749f672e6369d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Existing DPD"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FCDisburse"
+                            }
+                          },
+                          "Property": "Payment Date"
+                        }
+                      },
+                      "Function": 4
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "c6d2af98903db1e45474": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a83d05b5392ed89d736a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "HasMultipleLoans"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "128732653d06ab181573",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Customer"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ed07d950789b53545783",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "TypeOfCustomer"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Customer"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "HasMultipleLoans"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "de3e39f6a0a548e0e097": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "63016a1109b0182e7b9d",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "f",
+                        "Entity": "FCDisburse",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "f"
+                                        }
+                                      },
+                                      "Property": "Loan Status"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Grace Period'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Paid'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Loan Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e0740089990115a95db4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "Region"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ba6b13ea9f950e5e66f0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Loan"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Loan"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Customer"
+                        }
+                      },
+                      "Property": "Region"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ddad00cee24cd103795c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "721a1918327a46b1987e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Account Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0301e00aeb5dd5022866",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Customer"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b979a9df2be57c1e7e2f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "HasMultipleLoans"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e48aa618e370d7ad9582",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Loan"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "hundredPercentStackedBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measure"
+                        }
+                      },
+                      "Property": "Total Customer"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCDisburse"
+                        }
+                      },
+                      "Property": "Account Status"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4706fe89a45ad8498a76": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "4122e70026a07ecac07c": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

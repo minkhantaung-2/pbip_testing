@@ -1,0 +1,443 @@
+table Calendar
+	lineageTag: 063890b2-3f8f-47c8-87dd-a39a5bc499c1
+	dataCategory: Time
+
+	column cal_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 557412e2-80a1-477b-ac67-00c626070493
+		summarizeBy: none
+		sourceColumn: cal_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_month
+		dataType: int64
+		formatString: 0
+		lineageTag: eed782c2-b873-48c9-baca-33640a01916b
+		summarizeBy: none
+		sourceColumn: cal_month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column iso_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 25a4eb06-87fb-408d-a194-efa702e0a29f
+		summarizeBy: none
+		sourceColumn: iso_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column iso_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fddf803-8041-4e44-add3-12970a36961c
+		summarizeBy: none
+		sourceColumn: iso_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column fascial_year
+		dataType: string
+		lineageTag: 41360914-1e89-430b-83fc-316eddb25620
+		summarizeBy: none
+		sourceColumn: fascial_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column fascial_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d9dae6c-eaae-41ee-9b97-7715b6fec57b
+		summarizeBy: none
+		sourceColumn: fascial_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_date
+		dataType: dateTime
+		isKey
+		formatString: m/d/yyyy
+		lineageTag: 11d64482-da48-4265-991a-ae79f1e09d18
+		summarizeBy: none
+		sourceColumn: cal_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column cal_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c6d8b0b-c242-4b3f-9779-5065264dfe3a
+		summarizeBy: none
+		sourceColumn: cal_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: 76aba4b2-4dcd-4ed6-89bb-bbc507fb0375
+		summarizeBy: none
+		sourceColumn: day_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cal_day_no
+		dataType: int64
+		formatString: 0
+		lineageTag: 72d211ac-1ab8-4937-b0ec-9609af5b52fc
+		summarizeBy: none
+		sourceColumn: cal_day_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column fascial_day_no
+		dataType: int64
+		formatString: 0
+		lineageTag: a08c1d14-b827-45a1-9b63-48c381f6c8c7
+		summarizeBy: none
+		sourceColumn: fascial_day_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column iso_day_no
+		dataType: int64
+		formatString: 0
+		lineageTag: c63bbf53-7fd6-4518-a808-9b2a524a5860
+		summarizeBy: none
+		sourceColumn: iso_day_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_week_day
+		dataType: string
+		lineageTag: 70942914-0247-4bf4-919b-8955798e0024
+		summarizeBy: none
+		sourceColumn: is_week_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_type
+		dataType: string
+		lineageTag: 0b4c9938-128c-46f9-bca8-e17f1c94c94a
+		summarizeBy: none
+		sourceColumn: day_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_festival
+		dataType: string
+		lineageTag: c54fb248-4b88-4074-a60b-dc2a0ddcf127
+		summarizeBy: none
+		sourceColumn: is_festival
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Old'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6c3c991-f6ff-49d8-a2a4-98b4210ea927
+		summarizeBy: none
+		sourceColumn: Day Old
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week
+		dataType: string
+		lineageTag: 17d1981c-c931-4e03-a025-284418317026
+		summarizeBy: none
+		sourceColumn: Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 8ca5a7e2-b491-4a34-9919-0a3f94ae5051
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY Year Old'
+		dataType: string
+		lineageTag: 13dcdc6b-87a3-433e-892a-1cab283d8aa4
+		summarizeBy: none
+		sourceColumn: FY Year Old
+
+		annotation SummarizationSetBy = Automatic
+
+	column date = FORMAT('Calendar'[cal_date],"M/D/YYYY")
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e7801ecb-1b1d-4978-a5d4-41a68e1fe440
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Month = LEFT(trim('Calendar'[month_name]),3)
+		lineageTag: f0a65300-63e1-454f-94ac-0d230ec98ba6
+		summarizeBy: none
+		sortByColumn: fascial_month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Calendar","TableItemName":"Month (groups)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column 'FY Quarter' = "Q" & QUARTER(EDATE('Calendar'[Date],-3))
+		lineageTag: 25512a79-1809-4214-af6b-aa1e4b082205
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month (groups)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('Calendar'[Month]),
+				"(Blank)",
+				'Calendar'[Month] IN {"Apr"},
+				"Apr",
+				'Calendar'[Month] IN {"Aug"},
+				"Aug",
+				'Calendar'[Month] IN {"Dec"},
+				"Dec",
+				'Calendar'[Month] IN {"Feb",
+					"Feb"},
+				"Feb ",
+				'Calendar'[Month] IN {"Jan"},
+				"Jan",
+				'Calendar'[Month] IN {"Jul"},
+				"Jul",
+				'Calendar'[Month] IN {"Jun"},
+				"Jun",
+				'Calendar'[Month] IN {"Mar"},
+				"Mar",
+				'Calendar'[Month] IN {"May"},
+				"May",
+				'Calendar'[Month] IN {"Nov"},
+				"Nov",
+				'Calendar'[Month] IN {"Oct"},
+				"Oct",
+				'Calendar'[Month] IN {"Sep"},
+				"Sep",
+				'Calendar'[Month]
+			)
+		lineageTag: 8d50bb21-acf7-4426-981d-8281d5892adc
+		summarizeBy: none
+		sortByColumn: FinancialMonthNumber
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Calendar"
+				          }
+				        },
+				        "Property": "Month"
+				      }
+				    }
+				  ]
+				}
+
+		changedProperty = SortByColumn
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"c","Entity":"Calendar"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Apr","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Apr'"}}]]}}},{"DisplayName":"Aug","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Aug'"}}]]}}},{"DisplayName":"Dec","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Dec'"}}]]}}},{"DisplayName":"Feb ","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Feb'"}}],[{"Literal":{"Value":"'Feb'"}}]]}}},{"DisplayName":"Jan","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Jan'"}}]]}}},{"DisplayName":"Jul","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Jul'"}}]]}}},{"DisplayName":"Jun","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Jun'"}}]]}}},{"DisplayName":"Mar","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Mar'"}}]]}}},{"DisplayName":"May","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'May'"}}]]}}},{"DisplayName":"Nov","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Nov'"}}]]}}},{"DisplayName":"Oct","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Oct'"}}]]}}},{"DisplayName":"Sep","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month"}}],"Values":[[{"Literal":{"Value":"'Sep'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinancialMonthNumber = IF(MONTH('Calendar'[date])<4,MONTH('Calendar'[date])+9,MONTH('Calendar'[date])-3)
+		formatString: 0
+		lineageTag: 1715d6c8-305e-4bb0-95fb-a944e527dd24
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column thedayname
+		dataType: string
+		lineageTag: 478cf109-eed3-4ce3-b423-4a424e645ca3
+		summarizeBy: none
+		sourceColumn: thedayname
+
+		annotation SummarizationSetBy = Automatic
+
+	column themonthname
+		dataType: string
+		lineageTag: 7438475f-d408-46f4-b5e8-2809bc00c455
+		summarizeBy: none
+		sourceColumn: themonthname
+
+		annotation SummarizationSetBy = Automatic
+
+	column themonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 48cfaa4d-de91-42fc-a33c-b4d95dde7c56
+		summarizeBy: none
+		sourceColumn: themonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column thedayofweekinmonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 622c2326-43a7-4e47-846c-f67fddad8f3d
+		summarizeBy: none
+		sourceColumn: thedayofweekinmonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY Year' = ```
+			
+			VAR FiscalStartMonth = 4   -- Fiscal year starts in April
+			VAR YearStart =  IF(
+			        MONTH('Calendar'[cal_date]) < FiscalStartMonth, 
+			        YEAR('Calendar'[cal_date]) - 1, 
+			        YEAR('Calendar'[cal_date])
+			    )
+			VAR FiscalYear =
+			    IF(
+			        MONTH('Calendar'[cal_date]) >= FiscalStartMonth, 
+			        YEAR('Calendar'[cal_date] )+ 1,
+			        YEAR('Calendar'[cal_date])
+			    )
+			VAR FY2 =RIGHT(YearStart,2) & "-" & RIGHT(FiscalYear ,2)
+			VAR FY= IF('Calendar'[FY Year Old]<>blank(),'Calendar'[FY Year Old],FY2)
+			RETURN FY
+			    
+			```
+		lineageTag: 7a7cb6f6-8d32-4ec5-ade6-651ddd0a8c0e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY Quarter New' = IF('Calendar'[FY Quarter]<>blank(),'Calendar'[FY Quarter], "Q" & QUARTER(EDATE('Calendar'[Date],-3)))
+		lineageTag: 826d8efa-3435-442b-8606-58201d7517da
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week_new = If('Calendar'[Week]<>blank(),'Calendar'[Week],CONCATENATE("Week ",'Calendar'[thedayofweekinmonth]))
+		lineageTag: a38aee77-1c7c-41d9-bca7-5a41cc8e5a96
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month New' = if('Calendar'[Month]<>blank(),'Calendar'[Month],Left('Calendar'[themonthname],3))
+		lineageTag: 4fedf5ec-2602-4778-9409-427a8788846a
+		summarizeBy: none
+		sortByColumn: FinancialMonthNumber
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Calendar","TableItemName":"Month New (groups)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column Day =
+			
+			if('Calendar'[Day Old]<>blank(),'Calendar'[Day Old],Day('Calendar'[cal_date]))
+		lineageTag: 9f3c148b-c8d1-4262-a77b-541f5c03a08a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month New (groups)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('Calendar'[Month New]),
+				"(Blank)",
+				'Calendar'[Month New] IN {"Apr"},
+				"Apr",
+				'Calendar'[Month New] IN {"Aug"},
+				"Aug",
+				'Calendar'[Month New] IN {"Dec"},
+				"Dec",
+				'Calendar'[Month New] IN {"Feb"},
+				"Feb",
+				'Calendar'[Month New] IN {"Jan"},
+				"Jan",
+				'Calendar'[Month New] IN {"Jul"},
+				"Jul",
+				'Calendar'[Month New] IN {"Jun"},
+				"Jun",
+				'Calendar'[Month New] IN {"Mar"},
+				"Mar",
+				'Calendar'[Month New] IN {"May"},
+				"May",
+				'Calendar'[Month New] IN {"Nov"},
+				"Nov",
+				'Calendar'[Month New] IN {"Oct"},
+				"Oct",
+				'Calendar'[Month New] IN {"Sep"},
+				"Sep",
+				'Calendar'[Month New]
+			)
+		lineageTag: a0fda792-cea3-4cfb-b125-5bd9f2027f95
+		summarizeBy: none
+		sortByColumn: FinancialMonthNumber
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Calendar"
+				          }
+				        },
+				        "Property": "Month New"
+				      }
+				    }
+				  ]
+				}
+
+		changedProperty = SortByColumn
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"c","Entity":"Calendar"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Apr","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Apr'"}}]]}}},{"DisplayName":"Aug","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Aug'"}}]]}}},{"DisplayName":"Dec","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Dec'"}}]]}}},{"DisplayName":"Feb","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Feb'"}}]]}}},{"DisplayName":"Jan","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Jan'"}}]]}}},{"DisplayName":"Jul","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Jul'"}}]]}}},{"DisplayName":"Jun","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Jun'"}}]]}}},{"DisplayName":"Mar","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Mar'"}}]]}}},{"DisplayName":"May","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'May'"}}]]}}},{"DisplayName":"Nov","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Nov'"}}]]}}},{"DisplayName":"Oct","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Oct'"}}]]}}},{"DisplayName":"Sep","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Month New"}}],"Values":[[{"Literal":{"Value":"'Sep'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Week_new Hierarchy'
+		lineageTag: ada4b389-2c8b-4f61-8dca-aec5bf546242
+
+		level Week_new
+			lineageTag: 53b2dd81-5a4e-42b5-a5e7-61f84cc1027e
+			column: Week_new
+
+	partition Calendar = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(AmazonRedshift.Database("kbz-data-warehouse.cmpyslcsge3e.ap-southeast-1.redshift.amazonaws.com","kbz_analytics"), "select p.*, to_char(cal_date, 'Month') as Month_Name, substring(fascial_year, 3,5) as fascial_year_short#(lf)from kbzacoe.pu_retailed_calendar p #(lf)where cal_date < current_date#(lf)and cal_date >= cast('2023-02-21' as date)", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"fascial_year_short", "FY Year"}, {"cal_month_day", "Day"}, {"cal_month_of_week", "Week"}}),
+				    #"Appended Query" = Table.Combine({#"Renamed Columns", New_Calendar}),
+				    #"Sorted Rows" = Table.Sort(#"Appended Query",{{"cal_date", Order.Descending}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Sorted Rows",{{"Day", "Day Old"}, {"FY Year", "FY Year Old"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns1", "Days", each Date.Day),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Custom",{"Days"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

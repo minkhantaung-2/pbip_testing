@@ -1,0 +1,37 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Age Range","RepayStatus Range","Calendar","Customer","FCDisburse","Payroll","Issue_AccNo","Credit Limit","WrongAccessFees","New_Calendar","DPD Range"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_378cc9f8-612b-4170-a5de-5318e8eb5787
+ref table _Measure
+ref table 'Age Range'
+ref table 'RepayStatus Range'
+ref table Calendar
+ref table Customer
+ref table FCDisburse
+ref table LocalDateTable_d1bcc970-48ae-497c-9e1e-b889d278fb5b
+ref table LocalDateTable_e4509b88-5df6-4d90-8f3d-36218ee6b9c5
+ref table LocalDateTable_d9321a64-690a-4ece-b095-bc5156d16f28
+ref table Payroll
+ref table LocalDateTable_d9b79498-878c-4206-886d-6079943e2059
+ref table Issue_AccNo
+ref table 'Credit Limit'
+ref table WrongAccessFees
+ref table New_Calendar
+ref table LocalDateTable_fa447574-6a00-4d5a-a6e9-a0f66938a730
+ref table LocalDateTable_987d6f00-939f-4a1a-b388-1e9cfc707aa4
+ref table 'DPD Range'
+
+ref cultureInfo en-US
+

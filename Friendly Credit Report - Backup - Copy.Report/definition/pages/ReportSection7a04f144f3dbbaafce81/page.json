@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection7a04f144f3dbbaafce81",
+  "displayName": "Overview",
+  "displayOption": "FitToPage",
+  "height": 1010,
+  "width": 1400,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filterec5e138a4b9c165cb2ce",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Age Range"
+              }
+            },
+            "Property": "Age Range"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Filter0da71c1997dd7e7bd1d9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCDisburse"
+              }
+            },
+            "Property": "company name"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      },
+      {
+        "name": "Filter03217a3002a2060614da",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Customer"
+              }
+            },
+            "Property": "customer_name"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      },
+      {
+        "name": "Filter9f036ff9eb9328766c78",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCDisburse"
+              }
+            },
+            "Property": "dif_max_date"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User",
+        "isLockedInViewMode": true
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#D1E4F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "40D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "200L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

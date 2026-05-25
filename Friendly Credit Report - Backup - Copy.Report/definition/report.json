@@ -1,0 +1,189 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.1.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY23SU11",
+      "reportVersionAtImport": {
+        "visual": "1.8.85",
+        "report": "2.0.85",
+        "page": "1.3.85"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filterc01895a08c2e37bc7b77",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Credit Limit"
+              }
+            },
+            "Property": "Credit Limit Range"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "visible": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "advanceCardE03760C5AB684758B56AA29F9E6C257B"
+  ],
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "bar-chart5217929219883648.png",
+          "path": "bar-chart5217929219883648.png",
+          "type": "Image"
+        },
+        {
+          "name": "consumer-behavior03463873905833226.png",
+          "path": "consumer-behavior03463873905833226.png",
+          "type": "Image"
+        },
+        {
+          "name": "details12094020256463711.png",
+          "path": "details12094020256463711.png",
+          "type": "Image"
+        },
+        {
+          "name": "digital-payment4551744041291803.png",
+          "path": "digital-payment4551744041291803.png",
+          "type": "Image"
+        },
+        {
+          "name": "FC21194030746989823.PNG",
+          "path": "FC21194030746989823.PNG",
+          "type": "Image"
+        },
+        {
+          "name": "FC_Logo-removebg-preview27098878533285875.png",
+          "path": "FC_Logo-removebg-preview27098878533285875.png",
+          "type": "Image"
+        },
+        {
+          "name": "kbzpay_logo010194254219315635.png",
+          "path": "kbzpay_logo010194254219315635.png",
+          "type": "Image"
+        },
+        {
+          "name": "kbz_bank_36866525167030866.png",
+          "path": "kbz_bank_36866525167030866.png",
+          "type": "Image"
+        },
+        {
+          "name": "research7054761344784366.png",
+          "path": "research7054761344784366.png",
+          "type": "Image"
+        },
+        {
+          "name": "segmentation3897047411717487.png",
+          "path": "segmentation3897047411717487.png",
+          "type": "Image"
+        },
+        {
+          "name": "summary387521675165179.png",
+          "path": "summary387521675165179.png",
+          "type": "Image"
+        },
+        {
+          "name": "table09181230940694407.png",
+          "path": "table09181230940694407.png",
+          "type": "Image"
+        },
+        {
+          "name": "tracking028027289491383556.png",
+          "path": "tracking028027289491383556.png",
+          "type": "Image"
+        },
+        {
+          "name": "weekly-calendar5834918454168043.png",
+          "path": "weekly-calendar5834918454168043.png",
+          "type": "Image"
+        },
+        {
+          "name": "weekly-calendar_(1)8457643802602055.png",
+          "path": "weekly-calendar_(1)8457643802602055.png",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY23SU11",
+          "path": "BaseThemes/CY23SU11.json",
+          "type": "BaseTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

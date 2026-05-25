@@ -1,0 +1,131 @@
+table Customer
+	lineageTag: e6e98877-85b1-4e9f-be74-4d9e42f5f21f
+
+	column customer_id
+		dataType: string
+		lineageTag: bd7eefd6-cf28-4876-83e7-5be8afb9c7bd
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: c641bc10-b6da-4d47-ae09-2e721867e6ea
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cusaccount_level
+		dataType: string
+		lineageTag: c34d81d1-cde9-41fb-b729-fedcc2575420
+		summarizeBy: none
+		sourceColumn: cusaccount_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column cusaccstatus
+		dataType: string
+		lineageTag: 41203bed-c0f2-4da9-92ae-99f4373f3f7a
+		summarizeBy: none
+		sourceColumn: cusaccstatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: d69be0f2-519c-42e1-b003-ae02dabdf8f2
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_age
+		dataType: int64
+		lineageTag: 2d73d480-2556-4712-bf62-348bb8253072
+		summarizeBy: sum
+		sourceColumn: customer_age
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customer_gender
+		dataType: string
+		lineageTag: be058bfc-e217-4f4a-ba7e-262905a834c8
+		summarizeBy: none
+		sourceColumn: customer_gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone_no
+		dataType: string
+		lineageTag: 961d2a42-5a7b-435a-bd6f-6cb116f0cf01
+		summarizeBy: none
+		sourceColumn: phone_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column onb_township
+		dataType: string
+		lineageTag: 59c142ef-9d38-4391-a4b5-f8e6ea35b64a
+		summarizeBy: none
+		sourceColumn: onb_township
+
+		annotation SummarizationSetBy = Automatic
+
+	column isbankacclink
+		dataType: string
+		lineageTag: 10cc6afa-1fe5-458e-ae1c-6a2098d3c1ca
+		summarizeBy: none
+		sourceColumn: isbankacclink
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_range
+		dataType: string
+		lineageTag: d4d4e7f9-4efb-4ac7-83d8-79077db9b87a
+		summarizeBy: none
+		sourceColumn: age_range
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_index
+		dataType: int64
+		formatString: 0
+		lineageTag: 74f1a800-082b-4b3b-9677-6b24d00943e1
+		summarizeBy: sum
+		sourceColumn: age_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Range' =
+			SWITCH(TRUE(),
+			'Customer'[customer_age] < 18,"<18",
+			'Customer'[customer_age] >= 18 && 'Customer'[customer_age]<=25,"18 to 25",
+			'Customer'[customer_age]>25 && 'Customer'[customer_age]<=35,"26 to 35",
+			'Customer'[customer_age]>35 && 'Customer'[customer_age]<=45,"36 to 45",
+			'Customer'[customer_age]>45 && 'Customer'[customer_age]<=55,"46 to 55",
+			'Customer'[customer_age]>=55 && 'Customer'[customer_age]<=65,"56 to 65",">65")
+		lineageTag: d120d14a-3ecb-4c29-8599-ecc61717eb53
+		summarizeBy: none
+		sortByColumn: age_index
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Customer = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(AmazonRedshift.Database("kbz-data-warehouse.cmpyslcsge3e.ap-southeast-1.redshift.amazonaws.com:5439","kbz_analytics"), "select #(lf)cust_id as customer_id,#(lf)cust_name as customer_name, #(lf)cust_level as cusaccount_level, #(lf)acc_status as cusaccstatus, #(lf)case #(lf)#(tab)when region in ('Ayeyarwady','Bago','Chin','Kachin','Kayah','Kayin','Magway','Mandalay','Mon','Nay Pyi Taw','Rakhine','Sagaing','Shan','Tanintharyi','Yangon') then region#(lf)#(tab)else 'N/A'#(lf)end as cust_region,#(lf)age as customer_age, #(tab)#(lf)case #(lf)#(tab)when gender in ('M','F') then gender#(lf)#(tab)else 'N/A'#(lf)end as customer_gender,#(lf)phone_no,#(lf)case #(lf)    when township is null then 'N/A'#(lf)    else township#(lf)end as onb_township,#(lf)case #(lf)#(tab)when upper(casa_flag) in ('Y','N') then casa_flag#(lf)#(tab)else 'N/A'#(lf)end as isbankacclink,#(lf)case #(lf)#(tab)when age is null then 'N/A'#(lf)#(tab)when age < 18 then 'LT 18'#(lf)#(tab)when age >= 18 and age <= 25 then 'GTE 18 ~ LTE 25'#(lf)#(tab)when age > 25 and age <= 35 then 'GT 25 ~ LTE 35'#(lf)#(tab)when age > 35 and age <= 45 then 'GT 35 ~ LTE 45'#(lf)#(tab)when age > 45 and age <= 55 then 'GT 45 ~ LTE 55'#(lf)#(tab)when age > 55 and age <= 65 then 'GT 55 ~ LTE 65'#(lf)#(tab)else 'GT 65'#(lf)end as age_range,#(lf)case #(lf)#(tab)when age is null then 0#(lf)#(tab)when age < 18 then 1#(lf)#(tab)when age >= 18 and age <= 25 then 2#(lf)#(tab)when age > 25 and age <= 35 then 3#(lf)#(tab)when age > 35 and age <= 45 then 4#(lf)#(tab)when age > 45 and age <= 55 then 5#(lf)#(tab)when age > 55 and age <= 65 then 6#(lf)#(tab)else 7#(lf)end as age_index#(lf)from dimension.kpay_cust_profile p#(lf)--where friendly_credit_customer = 'Y'#(lf)inner join #(lf)(#(lf)    select distinct externalidentityid #(lf)    from base.kbzpayfriendlycredittransaction#(lf))fc on fc.externalidentityid = p.cust_id", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"cust_region", "Region"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

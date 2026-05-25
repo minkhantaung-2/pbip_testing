@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Friendly Credit Report - Backup - Copy"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3385557a-64c1-46ee-ae6a-aeae69a8137e"
+  }
+}

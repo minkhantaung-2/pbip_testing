@@ -1,0 +1,24 @@
+table WrongAccessFees
+	lineageTag: c2f91c6b-ea22-46b6-9dd4-fa1d3b5bd0ea
+
+	column ACCOUNT_NO
+		dataType: string
+		lineageTag: fd9e7378-bc91-4531-b075-e53d776adf29
+		summarizeBy: none
+		sourceColumn: ACCOUNT_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition WrongAccessFees = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("bVc5cgNACPtL6hRcu8BbPP7/N6JtI9mNo2FYQCDI5/Pjblb4vs+t9tmf7+9/+OxV8GZdhk/mKLi6hZN7zUbAdW8IeMeEk75+j4BX+h5kI5zskQHuzIpIdvY4wW3jngy71baw3hNcqnavLobjWHM6HaZK1ZF3xJMguAQcYSbSqeMm0qnxEZGc02kCBsciwEe88H07k2nozlbWc7xFOnNOcUP0+KrCrsUVNKyfFumg61VhFzg/OeYunhyLFaQN2qSYBvT8da73RKMJGc5RfTJ5Q7AzmGEVd86OiBvxBdMwJ01IwWNBzOWg6Uskf0Cxgm+HSOemiQGcDlfpYOKFhE2fGmENHozhNc/kLBf8iGl42mNc7wc7F3btjRrD+MO5JmunhVCvyYZYVEQwvw6950aG9YZysuCN4fC5IvlYW+6TjbnqySx8FXyuKBX2iwkaqkM9WWhCkXwVdInh4xEiy2MlBhAjXCr5vnFEllCl4I7dxkgJ6+lSfTIzrFWvSYJrAtiX9+X7NUuRwPr0CicZldQQgDGawklgd1E6sG5nhQA87co6W8VdEB8RSaFSRBrgzFBOoOAikuvGav+waOoqf5fIKusKnh2HmjpLGOBK3g2AB+cMw5jK5Egex9IateLkQU/wdn1OSqWzr92ENdIXcITzAAKGcihrSAcz71FQGgFjNwjrkj3o744VMA4R3q6o3gRLAWDsBmWdy8P9rFsVdkoV1sGlquAiefYdhtuZAwzLVbBjGpiG8GtHwrc4ElAjfedrLIYhd7xdPQ4C4QrGxR3GQxJQTVGqwEnNhx/GKY/yDc+iB7F2nE9+f0uKLyXHYYG9K+Crmi19Ill98lEvrOPVUMAuTiLA6rZ/Tg6fLThOAtMjrBdnDsNYjCr5wp3IzOOfiRQ0AEOxCC6LI9S+3gkOJ98/", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ACCOUNT_NO = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"ACCOUNT_NO", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

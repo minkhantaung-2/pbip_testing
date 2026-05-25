@@ -1,0 +1,990 @@
+table FCDisburse
+	lineageTag: 336421b9-787b-4bf4-a23c-47bdfef3f6b9
+
+	column orderid
+		dataType: string
+		lineageTag: a0b58daf-e347-4e20-8cfd-a8de8ae3ab54
+		summarizeBy: none
+		sourceColumn: orderid
+
+		annotation SummarizationSetBy = Automatic
+
+	column reftxnid
+		dataType: string
+		lineageTag: 14d7bd73-912c-4807-9b80-74393cee247a
+		summarizeBy: none
+		sourceColumn: reftxnid
+
+		annotation SummarizationSetBy = Automatic
+
+	column txnstatus
+		dataType: string
+		lineageTag: a16a9ec4-8018-4792-ba7b-54a488617ecb
+		summarizeBy: none
+		sourceColumn: txnstatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column initiatetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 09174515-3383-4483-9c9d-8c3552f55980
+		summarizeBy: none
+		sourceColumn: initiatetime
+
+		variation Variation
+			isDefault
+			relationship: d3111aef-988d-4edd-9c19-d783fd14d598
+			defaultHierarchy: LocalDateTable_d9b79498-878c-4206-886d-6079943e2059.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column buscope
+		dataType: string
+		lineageTag: 2ac0239f-6e1a-4026-853e-07a1b6b7a65a
+		summarizeBy: none
+		sourceColumn: buscope
+
+		annotation SummarizationSetBy = Automatic
+
+	column accountno
+		dataType: string
+		lineageTag: 6873e8cb-fa06-45aa-9f73-d0d2cd0fef37
+		summarizeBy: none
+		sourceColumn: accountno
+
+		annotation SummarizationSetBy = Automatic
+
+	column identityid
+		dataType: string
+		lineageTag: 78f4b312-1665-4504-9b35-64a30fa34fd1
+		summarizeBy: none
+		sourceColumn: identityid
+
+		annotation SummarizationSetBy = Automatic
+
+	column externalidentityid
+		dataType: string
+		lineageTag: 9fe8b06c-324a-4e67-bfbb-fa66f127a7e7
+		summarizeBy: none
+		sourceColumn: externalidentityid
+
+		annotation SummarizationSetBy = Automatic
+
+	column productid
+		dataType: string
+		lineageTag: 9cd0981c-a4ce-432b-a1fb-612a903c64bb
+		summarizeBy: none
+		sourceColumn: productid
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: 5fb3aa4b-d861-4a5d-8ac6-c70b7c895870
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column principal
+		dataType: double
+		lineageTag: 19e72acf-bce4-4235-a72f-dd4efe75786a
+		summarizeBy: sum
+		sourceColumn: principal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column accessfee
+		dataType: double
+		lineageTag: 6cbcb7ec-f215-4c45-9635-9750eef0263f
+		summarizeBy: sum
+		sourceColumn: accessfee
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column datadate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 03d4274d-55ae-48e7-a9e7-d4ec9791fd00
+		summarizeBy: none
+		sourceColumn: datadate
+
+		variation Variation
+			isDefault
+			relationship: a7fb648a-2975-479d-bee1-dc0828f9db02
+			defaultHierarchy: LocalDateTable_d1bcc970-48ae-497c-9e1e-b889d278fb5b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column auditkey
+		dataType: int64
+		formatString: 0
+		lineageTag: ab42b371-9860-4895-92a2-f2c53c8b4f2d
+		summarizeBy: sum
+		sourceColumn: auditkey
+
+		annotation SummarizationSetBy = Automatic
+
+	column rep_mindate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6ab1bdf9-4445-480b-b281-e20bc807fc6b
+		summarizeBy: none
+		sourceColumn: rep_mindate
+
+		variation Variation
+			isDefault
+			relationship: 039ce9d0-7b81-4208-b31b-58dd0747d6f4
+			defaultHierarchy: LocalDateTable_e4509b88-5df6-4d90-8f3d-36218ee6b9c5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column rep_maxdate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 05ab3132-6a5f-4a58-b30b-79d5d692d1c6
+		summarizeBy: none
+		sourceColumn: rep_maxdate
+
+		variation Variation
+			isDefault
+			relationship: 0d29b12d-5754-44ec-a5b6-6ce5e6bb7f6f
+			defaultHierarchy: LocalDateTable_d9321a64-690a-4ece-b095-bc5156d16f28.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dif_min_date
+		dataType: int64
+		formatString: 0
+		lineageTag: 37ddc9cf-6d82-4659-9545-21e7722d539b
+		summarizeBy: sum
+		sourceColumn: dif_min_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column dif_max_date
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a944345-2e83-4c3a-b2e6-e1ccc7a97cfd
+		summarizeBy: sum
+		sourceColumn: dif_max_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column dif_cur_date
+		dataType: int64
+		formatString: 0
+		lineageTag: 991375ca-fe05-4b48-9079-572f00562b22
+		summarizeBy: sum
+		sourceColumn: dif_cur_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_range_index
+		dataType: int64
+		formatString: 0
+		lineageTag: 57b22002-2f32-4c83-aa63-ad6821e595a2
+		summarizeBy: sum
+		sourceColumn: credit_range_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_range
+		dataType: string
+		lineageTag: 67e5b14b-d5cf-4b25-86bf-7df1257a9f31
+		summarizeBy: none
+		sourceColumn: credit_range
+
+		annotation SummarizationSetBy = Automatic
+
+	column dif_min_repaydate_index
+		dataType: int64
+		formatString: 0
+		lineageTag: c18f91bd-7429-4afe-9c76-a31068633c35
+		summarizeBy: sum
+		sourceColumn: dif_min_repaydate_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column dif_max_repaydate_index
+		dataType: int64
+		formatString: 0
+		lineageTag: c7740d3e-9132-488b-a8ee-e0694b6ec358
+		summarizeBy: sum
+		sourceColumn: dif_max_repaydate_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column dif_cur_intdate_index
+		dataType: int64
+		formatString: 0
+		lineageTag: ab708b45-1fdf-4991-9b00-797af2f0ab42
+		summarizeBy: sum
+		sourceColumn: dif_cur_intdate_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Actual Payment Amt' = [Payment Amt]- [Coupon]
+		lineageTag: c382c261-4ecc-401f-93ad-580035117971
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'company name' = CALCULATE(SELECTEDVALUE('Payroll'[companyname]),USERELATIONSHIP('FCDisburse'[externalidentityid],'Payroll'[employee_kpay_id]))
+		lineageTag: 8355424e-15d9-4a52-9f0b-9e33b8c1c77a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coupon =
+			SWITCH(TRUE(),
+			'FCDisburse'[principal]= 1000 && 'FCDisburse'[accessfee]=0, 60,
+			'FCDisburse'[principal]= 1000 && 'FCDisburse'[accessfee]=60, 0,
+			'FCDisburse'[principal]= 2000 && 'FCDisburse'[accessfee]=30, 60,
+			'FCDisburse'[principal]= 2000 && 'FCDisburse'[accessfee]=90, 0,
+			'FCDisburse'[principal]= 3000 && 'FCDisburse'[accessfee]=60, 60,
+			'FCDisburse'[principal]= 3000 && 'FCDisburse'[accessfee]=120, 0,
+			'FCDisburse'[principal]= 10 && 'FCDisburse'[accessfee]=60, 0,
+			'FCDisburse'[principal]= 10 && 'FCDisburse'[accessfee]=0, 60,
+			'FCDisburse'[principal]= 100 && 'FCDisburse'[accessfee]=60, 0,
+			'FCDisburse'[principal]= 100 && 'FCDisburse'[accessfee]=0, 60,
+			'FCDisburse'[principal]= 500 && 'FCDisburse'[accessfee]=60, 0,
+			'FCDisburse'[principal]= 500 && 'FCDisburse'[accessfee]=0, 60,
+			'FCDisburse'[principal]= 800 && 'FCDisburse'[accessfee]=60, 0,
+			'FCDisburse'[principal]= 800 && 'FCDisburse'[accessfee]=0, 60,
+			'FCDisburse'[principal]= 900 && 'FCDisburse'[accessfee]=60, 0,
+			'FCDisburse'[principal]= 900 && 'FCDisburse'[accessfee]=0,
+			60,
+			'FCDisburse'[principal]= 1800 && 'FCDisburse'[accessfee]=30, 60,
+			'FCDisburse'[principal]= 1800 && 'FCDisburse'[accessfee]=90, 0,
+			'FCDisburse'[principal]= 2800 && 'FCDisburse'[accessfee]=60, 60,
+			'FCDisburse'[principal]= 2800 && 'FCDisburse'[accessfee]=120, 0,
+			'FCDisburse'[principal]= 4000 && 'FCDisburse'[accessfee]=180, 60,
+			'FCDisburse'[principal]= 4000 && 'FCDisburse'[accessfee]=240, 0,
+			'FCDisburse'[principal]= 5000 && 'FCDisburse'[accessfee]=180, 60,
+			'FCDisburse'[principal]= 5000 && 'FCDisburse'[accessfee]=240, 0,0)
+		formatString: 0
+		lineageTag: ee2bc6bc-6507-44a9-8ef3-874da2b505b5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dis_Repay_Amt_Status =
+			SWITCH(TRUE(),
+			[Actual Payment Amt] = [Repayment_Amt], "Done","Not Yet")
+		lineageTag: f5dd869d-ee94-4453-8f4e-288700a80984
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dis_Repay_Date_Range =
+			SWITCH(
+			    TRUE(),
+			    'FCDisburse'[dif_max_date] >=8 && 'FCDisburse'[dif_max_date] <11, "8 to 10",
+			    'FCDisburse'[dif_max_date] >10 && 'FCDisburse'[dif_max_date]<21, "11 to 20",
+			    'FCDisburse'[dif_max_date] >20 && 'FCDisburse'[dif_max_date]<31, "21 to 30",
+			    'FCDisburse'[dif_max_date] > 30, "30+","0")
+		lineageTag: e793e945-6042-4252-8d00-3e9bcea790a5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Repayment Date' = 'FCDisburse'[rep_maxdate].[Date]
+		formatString: Short Date
+		lineageTag: 77ed1024-f77f-48a1-9a00-c0b84ec5e079
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 3f3dc1c3-f54f-41ab-abc6-866297a08e6a
+			defaultHierarchy: LocalDateTable_987d6f00-939f-4a1a-b388-1e9cfc707aa4.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'payment amt' = [principal] + [Service Fees New]
+		lineageTag: beed1304-6b4f-48e5-b355-03895d570eb4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Repayment Amt' = 'FCDisburse'[repayment_amount]
+		lineageTag: b6dc468d-973a-4368-be97-5a0645efde41
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Repayment_count = 'FCDisburse'[repaymentcount]
+		formatString: 0
+		lineageTag: 8f89c3ca-1def-4676-a5cb-ef05076fcc01
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Fee' =
+			SWITCH(TRUE(),
+			'FCDisburse'[principal]=1000 && 'FCDisburse'[accessfee]=0,
+			60,
+			'FCDisburse'[principal]=1000 && 'FCDisburse'[accessfee]=60,
+			60,
+			'FCDisburse'[principal]=2000 && 'FCDisburse'[accessfee]=30,
+			90,
+			'FCDisburse'[principal]=2000 && 'FCDisburse'[accessfee]=90,
+			90,
+			'FCDisburse'[principal]=3000 && 'FCDisburse'[accessfee]=60,
+			120,
+			'FCDisburse'[principal]=3000 && 'FCDisburse'[accessfee]=120,
+			120,
+			'FCDisburse'[principal]=4000 && 'FCDisburse'[accessfee]=180,
+			240,
+			'FCDisburse'[principal]=4000 && 'FCDisburse'[accessfee]=240,
+			240,
+			'FCDisburse'[principal]=5000 && 'FCDisburse'[accessfee]=180,
+			240,
+			'FCDisburse'[principal]=5000 && 'FCDisburse'[accessfee]=240,
+			240,
+			'FCDisburse'[principal]=10 && 'FCDisburse'[accessfee]=0,
+			60,
+			'FCDisburse'[principal]=10 && 'FCDisburse'[accessfee]=60,
+			60,
+			'FCDisburse'[principal]=100 && 'FCDisburse'[accessfee]=0,
+			60,
+			'FCDisburse'[principal]=100 && 'FCDisburse'[accessfee]=60,
+			60,
+			'FCDisburse'[principal]=500 && 'FCDisburse'[accessfee]=0,
+			60,
+			'FCDisburse'[principal]=500 && 'FCDisburse'[accessfee]=60,
+			60,
+			'FCDisburse'[principal]=800 && 'FCDisburse'[accessfee]=0,
+			60,
+			'FCDisburse'[principal]=800 && 'FCDisburse'[accessfee]=60,
+			60,
+			'FCDisburse'[principal]=900 && 'FCDisburse'[accessfee]=0,
+			60,
+			'FCDisburse'[principal]=900 && 'FCDisburse'[accessfee]=60,
+			60,
+			'FCDisburse'[principal]=1800 && 'FCDisburse'[accessfee]=30,
+			90,
+			'FCDisburse'[principal]=1800 && 'FCDisburse'[accessfee]=90,
+			90,
+			'FCDisburse'[principal]=2800 && 'FCDisburse'[accessfee]=60,
+			120,
+			'FCDisburse'[principal]=2800 && 'FCDisburse'[accessfee]=120,
+			120,FCDisburse[accessfee]
+			)
+		formatString: 0
+		lineageTag: 94d76a72-302c-4fc2-83a5-ba4cbe2f385c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Outstanding' = [Actual Payment Amt] - [Repayment Amt]
+		lineageTag: c4ea7223-0d66-4c86-b7d5-b2d6b5617e8d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Type of customer' = CALCULATE(SELECTEDVALUE('Payroll'[Type of employee]),USERELATIONSHIP('FCDisburse'[externalidentityid],'Payroll'[employee_kpay_id]))
+		lineageTag: 07cd21aa-1aa9-4849-9aa8-54d37ac55851
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TypeOfCustomer =
+			SWITCH(
+			    TRUE(),
+			    'FCDisburse'[Type of customer]="KBZ Employees", "KBZ Employees",
+			    'FCDisburse'[Type of customer]="Payrolls", "Payrolls",
+			    "Lvl-2 Public")
+		lineageTag: 419ab7a0-fcc1-49ef-8ce7-41334ced418c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payment Date' = FORMAT('FCDisburse'[initiatetime],"M/D/YYYY")
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d4780ac1-cc6b-42c2-96f9-3d16eb9e5c72
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Issue = LOOKUPVALUE('Issue_AccNo'[Issue_AccNo],'FCDisburse'[accountno],'FCDisburse'[accountno])
+		formatString: 0
+		lineageTag: abb6aafd-83a3-4a2c-9133-0c5821301be9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PaymentDate Check' = IF([Payment Date] >= DATE(2024, 8, 24),"yes","no")
+		lineageTag: 3660bc39-cccc-43ff-86c6-924dc3d1a5c7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Fees New' =
+			
+			SWITCH(
+			    TRUE(),
+			    [PaymentDate Check] = "yes" && [Principal] >= 1 && [Principal] <= 500, 30,
+			    [PaymentDate Check] = "yes" && [Principal] >= 501 && [Principal] <= 1000, 60,
+			    [PaymentDate Check] = "yes" && [Principal] >= 1001 && [Principal] <= 2000, 120,
+			    [PaymentDate Check] = "yes" && [Principal] >= 2001 && [Principal] <= 3000, 180,
+			    [PaymentDate Check] = "yes" && [Principal] >= 3001 && [Principal] <= 4000, 240,
+			    [PaymentDate Check] = "yes" && [Principal] >= 4001 && [Principal] <= 5000, 300,
+			    [PaymentDate Check] = "yes" && [Principal] >= 5001 && [Principal] <= 6000, 360,
+			    [PaymentDate Check] = "yes" && [Principal] >= 6001 && [Principal] <= 7000, 420,
+			    [PaymentDate Check] = "yes" && [Principal] >= 7001 && [Principal] <= 8000, 480,
+			    [PaymentDate Check] = "yes" && [Principal] >= 8001 && [Principal] <= 9000, 540,
+			    [PaymentDate Check] = "yes" && [Principal] >= 9001 && [Principal] <= 10000, 600,
+			    [PaymentDate Check] = "yes" && [Principal] >= 10001 && [Principal] <= 11000, 660,
+			    [PaymentDate Check] = "yes" && [Principal] >= 11001 && [Principal] <= 12000, 720,
+			    [PaymentDate Check] = "yes" && [Principal] >= 12001 && [Principal] <= 13000, 780,
+			    [PaymentDate Check] = "yes" && [Principal] >= 13001 && [Principal] <= 14000, 840,
+			    [PaymentDate Check] = "yes" && [Principal] >= 14001 && [Principal] <= 15000, 900,
+			    [PaymentDate Check] = "yes" && [Principal] >= 15001 && [Principal] <= 16000, 960,
+			    [PaymentDate Check] = "yes" && [Principal] >= 16001 && [Principal] <= 17000, 1020,
+			    [PaymentDate Check] = "yes" && [Principal] >= 17001 && [Principal] <= 18000, 1080,
+			    [PaymentDate Check] = "yes" && [Principal] >= 18001 && [Principal] <= 19000, 1140,
+			    [PaymentDate Check] = "yes" && [Principal] >= 19001 && [Principal] <= 20000, 1200,
+			    [PaymentDate Check] = "yes" && [Principal] >= 20001 && [Principal] <= 21000, 1260,
+			    [PaymentDate Check] = "yes" && [Principal] >= 21001 && [Principal] <= 22000, 1320,
+			    [PaymentDate Check] = "yes" && [Principal] >= 22001 && [Principal] <= 23000, 1380,
+			    [PaymentDate Check] = "yes" && [Principal] >= 23001 && [Principal] <= 24000, 1440,
+			    [PaymentDate Check] = "yes" && [Principal] >= 24001 && [Principal] <= 25000, 1500,
+			    [PaymentDate Check] = "yes" && [Principal] >= 25001 && [Principal] <= 26000, 1560,
+			    [PaymentDate Check] = "yes" && [Principal] >= 26001 && [Principal] <= 27000, 1620,
+			    [PaymentDate Check] = "yes" && [Principal] >= 27001 && [Principal] <= 28000, 1680,
+			    [PaymentDate Check] = "yes" && [Principal] >= 28001 && [Principal] <= 29000, 1740,
+			    [PaymentDate Check] = "yes" && [Principal] >= 29001 && [Principal] <= 30000, 1800,
+			    [PaymentDate Check] = "yes" && [Principal] >= 30001 && [Principal] <= 31000, 1860,
+			    [PaymentDate Check] = "yes" && [Principal] >= 31001 && [Principal] <= 32000, 1920,
+			    [PaymentDate Check] = "yes" && [Principal] >= 32001 && [Principal] <= 33000, 1980,
+			    [PaymentDate Check] = "yes" && [Principal] >= 33001 && [Principal] <= 34000, 2040,
+			    [PaymentDate Check] = "yes" && [Principal] >= 34001 && [Principal] <= 35000, 2100,
+			    [PaymentDate Check] = "yes" && [Principal] >= 35001 && [Principal] <= 36000, 2160,
+			    [PaymentDate Check] = "yes" && [Principal] >= 36001 && [Principal] <= 37000, 2220,
+			    [PaymentDate Check] = "yes" && [Principal] >= 37001 && [Principal] <= 38000, 2280,
+			    [PaymentDate Check] = "yes" && [Principal] >= 38001 && [Principal] <= 39000, 2340,
+			    [PaymentDate Check] = "yes" && [Principal] >= 39001 && [Principal] <= 40000, 2400,
+			    [PaymentDate Check] = "yes" && [Principal] >= 40001 && [Principal] <= 41000, 2460,
+			    [PaymentDate Check] = "yes" && [Principal] >= 41001 && [Principal] <= 42000, 2520,
+			    [PaymentDate Check] = "yes" && [Principal] >= 42001 && [Principal] <= 43000, 2580,
+			    [PaymentDate Check] = "yes" && [Principal] >= 43001 && [Principal] <= 44000, 2640,
+			    [PaymentDate Check] = "yes" && [Principal] >= 44001 && [Principal] <= 45000, 2700,
+			    [PaymentDate Check] = "yes" && [Principal] >= 45001 && [Principal] <= 46000, 2760,
+			    [PaymentDate Check] = "yes" && [Principal] >= 46001 && [Principal] <= 47000, 2820,
+			    [PaymentDate Check] = "yes" && [Principal] >= 47001 && [Principal] <= 48000, 2880,
+			    [PaymentDate Check] = "yes" && [Principal] >= 48001 && [Principal] <= 49000, 2940,
+			    [PaymentDate Check] = "yes" && [Principal] >= 49001 && [Principal] <= 50000, 3000,
+			    [PaymentDate Check] = "yes" && [Principal] >= 50001 && [Principal] <= 51000, 3060,
+			    [PaymentDate Check] = "yes" && [Principal] >= 51001 && [Principal] <= 52000, 3120,
+			    [PaymentDate Check] = "yes" && [Principal] >= 52001 && [Principal] <= 53000, 3180,
+			    [PaymentDate Check] = "yes" && [Principal] >= 53001 && [Principal] <= 54000, 3240,
+			    [PaymentDate Check] = "yes" && [Principal] >= 54001 && [Principal] <= 55000, 3300,
+			    [PaymentDate Check] = "yes" && [Principal] >= 55001 && [Principal] <= 56000, 3360,
+			    [PaymentDate Check] = "yes" && [Principal] >= 56001 && [Principal] <= 57000, 3420,
+			    [PaymentDate Check] = "yes" && [Principal] >= 57001 && [Principal] <= 58000, 3480,
+			    [PaymentDate Check] = "yes" && [Principal] >= 58001 && [Principal] <= 59000, 3540,
+			    [PaymentDate Check] = "yes" && [Principal] >= 59001 && [Principal] <= 60000, 3600,
+			    [Service Fee]
+			)
+		formatString: 0
+		lineageTag: 2ba37a81-cae4-44d8-87f7-98e060da7621
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Range' = ```
+			
+			SWITCH(TRUE(),
+			'FCDisburse'[principal]>=0 && 'FCDisburse'[principal]<=1000, "0 - 1000",
+			'FCDisburse'[principal]>=1001 && 'FCDisburse'[principal]<=2000, "1001 - 2000",
+			'FCDisburse'[principal]>=2001 && 'FCDisburse'[principal]<=3000, "2001 - 3000",
+			'FCDisburse'[principal]>=3001 && 'FCDisburse'[principal]<=4000, "3001 - 4000",
+			'FCDisburse'[principal]>=4001 && 'FCDisburse'[principal]<=5000, "4001 - 5000",
+			'FCDisburse'[principal]>=5001 && 'FCDisburse'[principal]<=6000, "5001 - 6000",
+			'FCDisburse'[principal]>=6001 && 'FCDisburse'[principal]<=7000, "6001 - 7000",
+			'FCDisburse'[principal]>=7001 && 'FCDisburse'[principal]<=8000, "7001 - 8000",
+			'FCDisburse'[principal]>=8001 && 'FCDisburse'[principal]<=9000, "8001 - 9000", 
+			'FCDisburse'[principal]>=9001 && 'FCDisburse'[principal]<=10000, "9001 - 10000", 
+			'FCDisburse'[principal]>=10001 && 'FCDisburse'[principal]<=11000, "10001 - 11000",
+			'FCDisburse'[principal]>=11001 && 'FCDisburse'[principal]<=12000, "11001 - 12000",
+			'FCDisburse'[principal]>=12001 && 'FCDisburse'[principal]<=13000, "12001 - 13000",
+			'FCDisburse'[principal]>=13001 && 'FCDisburse'[principal]<=14000, "13001 - 14000",
+			'FCDisburse'[principal]>=14001 && 'FCDisburse'[principal]<=15000, "14001 - 15000",
+			'FCDisburse'[principal]>=15001 && 'FCDisburse'[principal]<=16000, "15001 - 16000",
+			'FCDisburse'[principal]>=16001 && 'FCDisburse'[principal]<=17000, "16001 - 17000",
+			'FCDisburse'[principal]>=17001 && 'FCDisburse'[principal]<=18000, "17001 - 18000",
+			'FCDisburse'[principal]>=18001 && 'FCDisburse'[principal]<=19000, "18001 - 19000",
+			'FCDisburse'[principal]>=19001 && 'FCDisburse'[principal]<=20000, "19001 - 20000",
+			'FCDisburse'[principal]>=20001 && 'FCDisburse'[principal]<=21000, "20001 - 21000",
+			'FCDisburse'[principal]>=21001 && 'FCDisburse'[principal]<=22000, "21001 - 22000",
+			'FCDisburse'[principal]>=22001 && 'FCDisburse'[principal]<=23000, "22001 - 23000",
+			'FCDisburse'[principal]>=23001 && 'FCDisburse'[principal]<=24000, "23001 - 24000",
+			'FCDisburse'[principal]>=24001 && 'FCDisburse'[principal]<=25000, "24001 - 25000",
+			'FCDisburse'[principal]>=25001 && 'FCDisburse'[principal]<=26000, "25001 - 26000",
+			'FCDisburse'[principal]>=26001 && 'FCDisburse'[principal]<=27000, "26001 - 27000",
+			'FCDisburse'[principal]>=27001 && 'FCDisburse'[principal]<=28000, "27001 - 28000",
+			'FCDisburse'[principal]>=28001 && 'FCDisburse'[principal]<=29000, "28001 - 29000",
+			'FCDisburse'[principal]>=29001 && 'FCDisburse'[principal]<=30000, "29001 - 30000",
+			'FCDisburse'[principal]>=30001 && 'FCDisburse'[principal]<=31000, "30001 - 31000",
+			'FCDisburse'[principal]>=31001 && 'FCDisburse'[principal]<=32000, "31001 - 32000",
+			'FCDisburse'[principal]>=32001 && 'FCDisburse'[principal]<=33000, "32001 - 33000",
+			'FCDisburse'[principal]>=33001 && 'FCDisburse'[principal]<=34000, "33001 - 34000",
+			'FCDisburse'[principal]>=34001 && 'FCDisburse'[principal]<=35000, "34001 - 35000",
+			'FCDisburse'[principal]>=35001 && 'FCDisburse'[principal]<=36000, "35001 - 36000",
+			'FCDisburse'[principal]>=36001 && 'FCDisburse'[principal]<=37000, "36001 - 37000",
+			'FCDisburse'[principal]>=37001 && 'FCDisburse'[principal]<=38000, "37001 - 38000",
+			'FCDisburse'[principal]>=38001 && 'FCDisburse'[principal]<=39000, "38001 - 39000",
+			'FCDisburse'[principal]>=39001 && 'FCDisburse'[principal]<=40000, "39001 - 40000",
+			'FCDisburse'[principal]>=40001 && 'FCDisburse'[principal]<=41000, "40001 - 41000",
+			'FCDisburse'[principal]>=41001 && 'FCDisburse'[principal]<=42000, "41001 - 42000",
+			'FCDisburse'[principal]>=42001 && 'FCDisburse'[principal]<=43000, "42001 - 43000",
+			'FCDisburse'[principal]>=43001 && 'FCDisburse'[principal]<=44000, "43001 - 44000",
+			'FCDisburse'[principal]>=44001 && 'FCDisburse'[principal]<=45000, "44001 - 45000",
+			'FCDisburse'[principal]>=45001 && 'FCDisburse'[principal]<=46000, "45001 - 46000",
+			'FCDisburse'[principal]>=46001 && 'FCDisburse'[principal]<=47000, "46001 - 47000",
+			'FCDisburse'[principal]>=47001 && 'FCDisburse'[principal]<=48000, "47001 - 48000",
+			'FCDisburse'[principal]>=48001 && 'FCDisburse'[principal]<=49000, "48001 - 49000",
+			'FCDisburse'[principal]>=49001 && 'FCDisburse'[principal]<=50000, "49001 - 50000",
+			'FCDisburse'[principal]>=50001 && 'FCDisburse'[principal]<=51000, "50001 - 51000",
+			'FCDisburse'[principal]>=51001 && 'FCDisburse'[principal]<=52000, "51001 - 52000",
+			'FCDisburse'[principal]>=52001 && 'FCDisburse'[principal]<=53000, "52001 - 53000",
+			'FCDisburse'[principal]>=53001 && 'FCDisburse'[principal]<=54000, "53001 - 54000",
+			'FCDisburse'[principal]>=54001 && 'FCDisburse'[principal]<=55000, "54001 - 55000",
+			'FCDisburse'[principal]>=55001 && 'FCDisburse'[principal]<=56000, "55001 - 56000",
+			'FCDisburse'[principal]>=56001 && 'FCDisburse'[principal]<=57000, "56001 - 57000",
+			'FCDisburse'[principal]>=57001 && 'FCDisburse'[principal]<=58000, "57001 - 58000",
+			'FCDisburse'[principal]>=58001 && 'FCDisburse'[principal]<=59000, "58001 - 59000",
+			"59001 - 60000"
+			)
+			```
+		lineageTag: 98929ca3-8f19-49bd-964f-da841e8f1303
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit Limit Range' =
+			
+			SWITCH(
+			    TRUE(),
+			    [Principal] >= 1 && [Principal] <= 500, "1 - 500",
+			    [Principal] >= 501 && [Principal] <= 1000, "501 - 1000",
+			    [Principal] >= 1001 && [Principal] <= 2000, "1001 - 2000",
+			    [Principal] >= 2001 && [Principal] <= 3000, "2001 - 3000",
+			    [Principal] >= 3001 && [Principal] <= 4000, "3001 - 4000",
+			    [Principal] >= 4001 && [Principal] <= 5000, "4001 - 5000",
+			    [Principal] >= 5001 && [Principal] <= 6000, "5001 - 6000",
+			    [Principal] >= 6001 && [Principal] <= 7000, "6001 - 7000",
+			    [Principal] >= 7001 && [Principal] <= 8000, "7001 - 8000",
+			    [Principal] >= 8001 && [Principal] <= 9000, "8001 - 9000",
+			    [Principal] >= 9001 && [Principal] <= 10000,"9001 - 10000",
+			    [Principal] >= 10001 && [Principal] <= 11000,"10001 - 11000",
+			    [Principal] >= 11001 && [Principal] <= 12000,"11001 - 12000",
+			    [Principal] >= 12001 && [Principal] <= 13000,"12001 - 13000",
+			    [Principal] >= 13001 && [Principal] <= 14000,"13001 - 14000",
+			    [Principal] >= 14001 && [Principal] <= 15000,"14001 - 15000",
+			    [Principal] >= 15001 && [Principal] <= 16000,"15001 - 16000",
+			    [Principal] >= 16001 && [Principal] <= 17000,"16001 - 17000",
+			    [Principal] >= 17001 && [Principal] <= 18000,"17001 - 18000",
+			    [Principal] >= 18001 && [Principal] <= 19000,"18001 - 19000",
+			    [Principal] >= 19001 && [Principal] <= 20000,"19001 - 20000",
+			    [Principal] >= 20001 && [Principal] <= 21000,"20001 - 21000",
+			    [Principal] >= 21001 && [Principal] <= 22000,"21001 - 22000",
+			    [Principal] >= 22001 && [Principal] <= 23000,"22001 - 23000",
+			    [Principal] >= 23001 && [Principal] <= 24000,"23001 - 24000",
+			    [Principal] >= 24001 && [Principal] <= 25000,"24001 - 25000",
+			    [Principal] >= 25001 && [Principal] <= 26000,"25001 - 26000",
+			    [Principal] >= 26001 && [Principal] <= 27000,"26001 - 27000",
+			    [Principal] >= 27001 && [Principal] <= 28000,"27001 - 28000",
+			    [Principal] >= 28001 && [Principal] <= 29000,"28001 - 29000",
+			    [Principal] >= 29001 && [Principal] <= 30000,"29001 - 30000",
+			    [Principal] >= 30001 && [Principal] <= 31000,"30001 - 31000",
+			    [Principal] >= 31001 && [Principal] <= 32000,"31001 - 32000",
+			    [Principal] >= 32001 && [Principal] <= 33000,"32001 - 33000",
+			    [Principal] >= 33001 && [Principal] <= 34000,"33001 - 34000",
+			    [Principal] >= 34001 && [Principal] <= 35000,"34001 - 35000",
+			    [Principal] >= 35001 && [Principal] <= 36000,"35001 - 36000",
+			    [Principal] >= 36001 && [Principal] <= 37000,"36001 - 37000",
+			    [Principal] >= 37001 && [Principal] <= 38000,"37001 - 38000",
+			    [Principal] >= 38001 && [Principal] <= 39000,"38001 - 39000",
+			    [Principal] >= 39001 && [Principal] <= 40000,"39001 - 40000",
+			    [Principal] >= 40001 && [Principal] <= 41000,"40001 - 41000",
+			    [Principal] >= 41001 && [Principal] <= 42000,"41001 - 42000",
+			    [Principal] >= 42001 && [Principal] <= 43000,"42001 - 43000",
+			    [Principal] >= 43001 && [Principal] <= 44000,"43001 - 44000",
+			    [Principal] >= 44001 && [Principal] <= 45000,"44001 - 45000",
+			    [Principal] >= 45001 && [Principal] <= 46000,"45001 - 46000",
+			    [Principal] >= 46001 && [Principal] <= 47000,"46001 - 47000",
+			    [Principal] >= 47001 && [Principal] <= 48000,"47001 - 48000",
+			    [Principal] >= 48001 && [Principal] <= 49000,"48001 - 49000",
+			    [Principal] >= 49001 && [Principal] <= 50000,"49001 - 50000",
+			    [Principal] >= 50001 && [Principal] <= 51000,"50001 - 51000",
+			    [Principal] >= 51001 && [Principal] <= 52000,"51001 - 52000",
+			    [Principal] >= 52001 && [Principal] <= 53000,"52001 - 53000",
+			    [Principal] >= 53001 && [Principal] <= 54000,"53001 - 54000",
+			    [Principal] >= 54001 && [Principal] <= 55000,"54001 - 55000",
+			    [Principal] >= 55001 && [Principal] <= 56000,"55001 - 56000",
+			    [Principal] >= 56001 && [Principal] <= 57000,"56001 - 57000",
+			    [Principal] >= 57001 && [Principal] <= 58000,"57001 - 58000",
+			    [Principal] >= 58001 && [Principal] <= 59000,"58001 - 59000",
+			    [Principal] >= 59001 && [Principal] <= 60000,"59001 - 60000"
+			
+			)
+		lineageTag: 94efdbe2-728f-44ad-8c9f-80149ef2025e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TopUp_Package Type' =
+			
+			SWITCH(
+			    TRUE(),
+			    [Principal] == 1000 || [principal] == 2000 || [principal] == 3000 || [principal] == 4000 || [principal] == 5000 || [principal] == 6000 || [principal] == 7000 || [principal] == 8000 || [principal] == 9000 || [principal] == 10000, "Top Up", "Package"
+			)
+		lineageTag: b20e17fb-e640-44f3-977e-b0f2c3fb67a1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Credit index' =
+			
+			SWITCH(
+			    TRUE(),
+			   [Credit Limit Range]="1 - 500",1,
+			   [Credit Limit Range]="501 - 1000",2,
+			   [Credit Limit Range]="1001 - 2000",3,
+			   [Credit Limit Range]="2001 - 3000",4,
+			   [Credit Limit Range]="3001 - 4000",5,
+			   [Credit Limit Range]="4001 - 5000",6,
+			   [Credit Limit Range]="5001 - 6000",7,
+			   [Credit Limit Range]="6001 - 7000",8,
+			   [Credit Limit Range]="7001 - 8000",9,
+			   [Credit Limit Range]="8001 - 9000",10,
+			   [Credit Limit Range]="9001 - 10000",11,
+			   [Credit Limit Range]="10001 - 11000",12,
+			   [Credit Limit Range]="11001 - 12000",13,
+			   [Credit Limit Range]="12001 - 13000",14,
+			   [Credit Limit Range]="13001 - 14000",15,
+			   [Credit Limit Range]="14001 - 15000",16,
+			   [Credit Limit Range]="15001 - 16000",17,
+			   [Credit Limit Range]="16001 - 17000",18,
+			   [Credit Limit Range]="17001 - 18000",19,
+			   [Credit Limit Range]="18001 - 19000",20,
+			   [Credit Limit Range]="19001 - 20000",21,
+			   [Credit Limit Range]="20001 - 21000",22,
+			   [Credit Limit Range]="21001 - 22000",23,
+			   [Credit Limit Range]="22001 - 23000",24,
+			   [Credit Limit Range]="23001 - 24000",25,
+			   [Credit Limit Range]="24001 - 25000",26,
+			   [Credit Limit Range]="25001 - 26000",27,
+			   [Credit Limit Range]="26001 - 27000",28,
+			   [Credit Limit Range]="27001 - 28000",29,
+			   [Credit Limit Range]="28001 - 29000",30,
+			   31
+			)
+		formatString: 0
+		lineageTag: 4877fb4f-e3dc-49d0-b1ea-874552d887d7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column businesstype
+		dataType: string
+		lineageTag: 3d1af7b6-8250-4277-8de3-33b38d828edf
+		summarizeBy: none
+		sourceColumn: businesstype
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_type =
+			SWITCH(
+			TRUE(),
+			FCDisburse[businesstype]="PayUtilities","Bill Payments",
+			FCDisburse[businesstype]="OnlinePaymentforBuyAirtime","Top Up",
+			FCDisburse[businesstype]="BuyGiftcard","Giftcard",
+			FCDisburse[businesstype]="BuyDataPack","Package",'FCDisburse'[TopUp_Package Type])
+		lineageTag: 5c525dfc-d8df-45a1-81a3-895e4332bcba
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DPD Range for Weekly' =
+			SWITCH(
+			    TRUE(),
+			    'FCDisburse'[DayPastDue]>180, "180+",
+			    'FCDisburse'[DayPastDue] >90 || FCDisburse[DayPastDue]>180, "90+",
+			    'FCDisburse'[DayPastDue] >30 || FCDisburse[DayPastDue]> 90 || FCDisburse[DayPastDue]> 180, "30+","Others")
+		lineageTag: ea55bc84-f6bd-44e8-816f-5cb5db594b7a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Diff' = DATEDIFF('FCDisburse'[Payment Date],TODAY(),DAY)
+		formatString: 0
+		lineageTag: 0734c621-7410-47bb-a57e-098f07feb20f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status =
+			
+			SWITCH( TRUE(),
+			FCDisburse[Date Diff]<=7, "Grace Period",
+			FCDisburse[Date Diff]>=8 && 'FCDisburse'[Dis_Repay_Amt_Status]="Not Yet","DPD","Paid"
+			)
+		lineageTag: 4ec25cd6-e5a0-4d57-9708-c3aa6d8e5335
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayPastDue = ```
+			
+			Switch(TRUE(),
+			'FCDisburse'[Date Diff]>7 && FCDisburse[Dis_Repay_Amt_Status]="Not Yet",'FCDisburse'[Date Diff]-7,0)
+			
+			```
+		formatString: 0
+		lineageTag: 6b88c734-45ce-40aa-be22-425a1076767c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column RepayStatus =
+			
+			SWITCH(TRUE(),
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>180,"180+",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>90 && FCDisburse[DayPastDue]<=180,"91 to 180",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>60 && FCDisburse[DayPastDue]<=90,"61 to 90",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>30 && FCDisburse[DayPastDue]<=60,"31 to 60",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>=1 && FCDisburse[DayPastDue]<=30,"1 to 30",
+			'FCDisburse'[Status]="Paid","Paid",
+			'FCDisburse'[DayPastDue]=0 && 'FCDisburse'[Status]="Grace Period","Grace Period")
+		lineageTag: 71698cd9-1f35-4ac4-a3bc-0b858f813882
+		summarizeBy: none
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RepayStatus index' = LOOKUPVALUE('RepayStatus Range'[RepayStatus Index],'RepayStatus Range'[RepayStatus Range],'FCDisburse'[RepayStatus])
+		formatString: 0
+		lineageTag: ba5f906c-a4b7-409b-9b15-d8288b43efc7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loan Status' =
+			
+			SWITCH(TRUE(),
+			'FCDisburse'[RepayStatus]="Paid" || ('FCDisburse'[Issue]<>BLANK() && FCDisburse[Status]="DPD"),"Paid",
+			FCDisburse[RepayStatus]="1 to 30","1 to 30",
+			FCDisburse[RepayStatus]="31 to 60","31 to 60",
+			FCDisburse[RepayStatus]="61 to 90","61 to 90",
+			FCDisburse[RepayStatus]="91 to 180","91 to 180",
+			FCDisburse[RepayStatus]="180+","180+","Grace Period"
+			)
+		lineageTag: 477c2631-d2f9-4c54-bb44-e6cfb4a8417b
+		summarizeBy: none
+		sortByColumn: 'RepayStatus index'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Repayment_Amt =
+			SWITCH(TRUE(),
+			'FCDisburse'[Issue]<>BLANK(),'FCDisburse'[Total Outstanding]+'FCDisburse'[repayment_amount],
+			'FCDisburse'[WrongAccessFees]<>BLANK(),'FCDisburse'[payment amt],
+			FCDisburse[repayment_amount])
+		lineageTag: 99122d15-5b38-4ed8-8f1a-ef9869494b7d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Total_Outstanding =
+			SWITCH(TRUE(),
+			'FCDisburse'[Issue]<>BLANK() || 'FCDisburse'[WrongAccessFees],0,'FCDisburse'[Total Outstanding])
+		lineageTag: f4d97735-cc21-4a6d-aa08-40eaa30c1132
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AccFeeVsServiceFeeCheck = IF(FCDisburse[accessfee]=FCDisburse[Service Fees New],"Y","N")
+		lineageTag: 345f31e4-6ae3-446c-bcbf-b824faf81286
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column WrongAccessFees = LOOKUPVALUE('WrongAccessFees'[ACCOUNT_NO],'FCDisburse'[accountno],'FCDisburse'[accountno])
+		lineageTag: c5e9e68a-534e-4e5c-ae84-b387f95babb2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DPD Bucket' =
+			SWITCH(TRUE(),
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>180,"DPD 180+",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>90,"DPD 91 - 180",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>60,"DPD 61 - 90",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>30,"DPD 31 - 60",
+			'FCDisburse'[Status]="DPD" && 'FCDisburse'[DayPastDue]>=1,"DPD 1 - 30","None"
+			)
+		lineageTag: d7c96537-bcb8-4950-8315-0a4d17a0b8df
+		summarizeBy: none
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Score =
+			SWITCH(True(),
+			'FCDisburse'[Credit Limit Range]= "1 - 500" || FCDisburse[Credit Limit Range]= "501 - 1000" || FCDisburse[Credit Limit Range]= "1001 - 2000" || FCDisburse[Credit Limit Range]= "2001 - 3000", "720 - 740",
+			'FCDisburse'[Credit Limit Range]= "3001 - 4000" || FCDisburse[Credit Limit Range]= "4001 - 5000" || FCDisburse[Credit Limit Range]= "5001 - 6000", "741 - 770",
+			'FCDisburse'[Credit Limit Range]= "6001 - 7000" || FCDisburse[Credit Limit Range]= "7001 - 8000" || FCDisburse[Credit Limit Range]= "8001 - 9000" || FCDisburse[Credit Limit Range]= "9001 - 10000" || FCDisburse[Credit Limit Range]= "10001 - 11000" || FCDisburse[Credit Limit Range]= "11001 - 12000" || FCDisburse[Credit Limit Range]= "12001 - 13000" || FCDisburse[Credit Limit Range]= "13001 - 14000" || FCDisburse[Credit Limit Range]= "14001 - 15000" || FCDisburse[Credit Limit Range]= "15001 - 16000" || FCDisburse[Credit Limit Range]= "16001 - 17000" || FCDisburse[Credit Limit Range]= "17001 - 18000" || FCDisburse[Credit Limit Range]= "18001 - 19000" || FCDisburse[Credit Limit Range]= "19001 - 20000", "771 - 800",
+			'FCDisburse'[Credit Limit Range]= "20001 - 21000" || FCDisburse[Credit Limit Range]= "21001 - 22000" || FCDisburse[Credit Limit Range]= "22001 - 23000" || FCDisburse[Credit Limit Range]= "23001 - 24000" || FCDisburse[Credit Limit Range]= "24001 - 25000" || FCDisburse[Credit Limit Range]= "25001 - 26000" || FCDisburse[Credit Limit Range]= "26001 - 27000" || FCDisburse[Credit Limit Range]= "27001 - 28000" || FCDisburse[Credit Limit Range]= "28001 - 29000" || FCDisburse[Credit Limit Range]= "29001 - 30000" || FCDisburse[Credit Limit Range]= "30001 - 31000" || FCDisburse[Credit Limit Range]= "31001 - 32000" || FCDisburse[Credit Limit Range]= "32001 - 33000" || FCDisburse[Credit Limit Range]= "33001 - 34000" || FCDisburse[Credit Limit Range]= "34001 - 35000" || FCDisburse[Credit Limit Range]= "35001 - 36000" || FCDisburse[Credit Limit Range]= "36001 - 37000" || FCDisburse[Credit Limit Range]= "37001 - 38000" || FCDisburse[Credit Limit Range]= "38001 - 39000" || FCDisburse[Credit Limit Range]= "39001 - 40000", "801 - 820",
+			'FCDisburse'[Credit Limit Range]= "40001 - 41000" || FCDisburse[Credit Limit Range]= "41001 - 42000" || FCDisburse[Credit Limit Range]= "42001 - 43000" || FCDisburse[Credit Limit Range]= "43001 - 44000" || FCDisburse[Credit Limit Range]= "44001 - 45000" || FCDisburse[Credit Limit Range]= "45001 - 46000" || FCDisburse[Credit Limit Range]= "46001 - 47000" || FCDisburse[Credit Limit Range]= "47001 - 48000" || FCDisburse[Credit Limit Range]= "48001 - 49000" || FCDisburse[Credit Limit Range]= "49001 - 50000" || FCDisburse[Credit Limit Range]= "50001 - 51000" || FCDisburse[Credit Limit Range]= "51001 - 52000" || FCDisburse[Credit Limit Range]= "52001 - 53000" || FCDisburse[Credit Limit Range]= "53001 - 54000" || FCDisburse[Credit Limit Range]= "54001 - 55000" || FCDisburse[Credit Limit Range]= "55001 - 56000" || FCDisburse[Credit Limit Range]= "56001 - 57000" || FCDisburse[Credit Limit Range]= "57001 - 58000" || FCDisburse[Credit Limit Range]= "58001 - 59000" || FCDisburse[Credit Limit Range]= "59001 - 60000", "821- 1000"
+			)
+		lineageTag: 0f7fbb4f-ae57-4f34-a08a-975cb8fd6e6a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Status' = LOOKUPVALUE('Customer'[cusaccstatus],'Customer'[customer_id],'FCDisburse'[externalidentityid])
+		lineageTag: 9cc48380-3fdc-470f-8210-92bc979f4c93
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Name =
+			SWITCH(TRUE(),
+			'FCDisburse'[company name]<>BLANK(),'FCDisburse'[company name],"Lvl-2 Public")
+		lineageTag: 9a156eb5-de8c-4ab8-94e5-9b93df88d30d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column HasMultipleLoans =
+			
+			IF(
+			    CALCULATE(
+			        COUNTROWS(FCDisburse),
+			        ALLEXCEPT(FCDisburse, FCDisburse[externalidentityid])
+			    ) > 1,
+			    "Yes",
+			    "No"
+			)
+		lineageTag: 2a3152d0-c9a5-401f-a156-d6e50d3aea0a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Existing DPD' = IF('FCDisburse'[Loan Status]<>"Paid" && 'FCDisburse'[Loan Status]<>"Grace Period",1,0)
+		formatString: 0
+		lineageTag: dc054ce5-53f4-44ba-8143-b1c59a824f71
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ff8f5a4a-ef68-486e-85d1-492fd13b00f7
+		summarizeBy: sum
+		sourceColumn: year_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e707f32-6cae-47b8-8bb5-3797511de3c7
+		summarizeBy: sum
+		sourceColumn: month_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_key
+		dataType: int64
+		formatString: 0
+		lineageTag: e1cf502e-8f72-426d-aeea-1a9f9b62cc92
+		summarizeBy: sum
+		sourceColumn: day_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column repayment_amount
+		dataType: double
+		formatString: 0
+		lineageTag: d49058ec-defa-412b-9173-ef1b9ac97cc3
+		summarizeBy: sum
+		sourceColumn: repayment_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column repaymentcount
+		dataType: int64
+		formatString: 0
+		lineageTag: b9c20a2e-e6b5-4671-a01a-7fc74af5f7a1
+		summarizeBy: sum
+		sourceColumn: repaymentcount
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancel_acc_no
+		dataType: string
+		lineageTag: 0fa8eae2-bd48-4bbc-8a55-e58f04149036
+		summarizeBy: none
+		sourceColumn: cancel_acc_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DPD range' = IF(FCDisburse[DPD Bucket] = "DPD 1 - 30","1",IF(FCDisburse[DPD Bucket] = "DPD 31 - 60","2",If(FCDisburse[DPD Bucket] = "DPD 61 - 90","3",If(FCDisburse[DPD Bucket] = "DPD 91 - 180","4",If(FCDisburse[DPD Bucket] = "DPD 180+","5",If(FCDisburse[DPD Bucket] = "None",""))))))
+		lineageTag: 991db448-7151-45af-aaf9-323429b62246
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FCDisburse = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(AmazonRedshift.Database("kbz-data-warehouse.cmpyslcsge3e.ap-southeast-1.redshift.amazonaws.com:5439","kbz_analytics"), "select distinct * from kbz_analytics.derive.fc_disburse", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

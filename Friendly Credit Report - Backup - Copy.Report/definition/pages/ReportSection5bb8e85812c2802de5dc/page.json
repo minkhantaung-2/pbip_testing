@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection5bb8e85812c2802de5dc",
+  "displayName": "Weekly",
+  "displayOption": "FitToPage",
+  "height": 1000,
+  "width": 1650,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#D1E4F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "40D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

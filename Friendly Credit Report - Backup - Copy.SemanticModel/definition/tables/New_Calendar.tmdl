@@ -1,0 +1,66 @@
+table New_Calendar
+	lineageTag: 0ca58f20-08d8-4584-8779-5eded61908a3
+
+	column cal_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dc0f4e73-a222-4c35-93ff-154268ad99d5
+		summarizeBy: none
+		sourceColumn: cal_date
+
+		variation Variation
+			isDefault
+			relationship: 1ecccaa2-d855-4105-8aef-bb81249368bd
+			defaultHierarchy: LocalDateTable_fa447574-6a00-4d5a-a6e9-a0f66938a730.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column thedayname
+		dataType: string
+		lineageTag: 3a2b0d9e-6d12-4afa-b52c-61a067118c50
+		summarizeBy: none
+		sourceColumn: thedayname
+
+		annotation SummarizationSetBy = Automatic
+
+	column themonthname
+		dataType: string
+		lineageTag: cdd4fbd9-1a81-4105-a3a8-299c03271498
+		summarizeBy: none
+		sourceColumn: themonthname
+
+		annotation SummarizationSetBy = Automatic
+
+	column themonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 78cff854-db5c-4aa4-84ea-7ac2695f4d4d
+		summarizeBy: sum
+		sourceColumn: themonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column thedayofweekinmonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c00ab6b-2021-48c0-96c3-f5bfaef030cb
+		summarizeBy: sum
+		sourceColumn: thedayofweekinmonth
+
+		annotation SummarizationSetBy = Automatic
+
+	partition New_Calendar = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(AmazonRedshift.Database("kbz-data-warehouse.cmpyslcsge3e.ap-southeast-1.redshift.amazonaws.com:5439","kbz_analytics"), "select thedate,thedayname,themonthname ,themonth,thedayofweekinmonth  from kbz_analytics.dimension.calendar#(lf)where thedate < current_date#(lf)and thedate>='2025-04-01'", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"thedate", "cal_date"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

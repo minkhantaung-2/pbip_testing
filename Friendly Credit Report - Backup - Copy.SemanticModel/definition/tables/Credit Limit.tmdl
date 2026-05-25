@@ -1,0 +1,37 @@
+table 'Credit Limit'
+	lineageTag: 0d4970c1-07a5-4c04-a156-c6d42134472e
+
+	column 'Credit Limit Range'
+		dataType: string
+		lineageTag: b162fafa-5cd2-43e7-a858-bc032da2135d
+		summarizeBy: none
+		sourceColumn: Credit Limit Range
+		sortByColumn: Index
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 90ad0560-78ce-4d0b-aa2a-ba15d6d22f7c
+		summarizeBy: none
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Credit Limit' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("RdNLbgJBDEXRraAeJ1L5B9RaEPvfRiB+vjXjeoCOqu3X67Lb763Wut4/r6vWt2wpPz++7dPeHdPRndPZXYu/++/79L37Mf3ofk4/u/f0XngA9eQQZTSQJqXBNDkNqElqUE1WA2vSGlyT1wCbxAbZ9nkzHq0nmH3e9TyszI7ZZXbMLrNjdpkds8vsmF1mx+wyO2bf57vyYXuCOWQOzDHbcNZB5sAcMgfmkDkwh8yBOWQOzCFzYI59do/l6wnmlDkxp8yJOWeHzxLLnJhT5sScMifmlDkxp8yJOfe5Dw6kJ5hL5sJcMhfmkrkw11zeOT2ZC3PJXJhL5sJcMhfm2ueGP5P3Hw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Credit Limit Range" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Credit Limit Range", type text}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
